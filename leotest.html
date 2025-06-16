@@ -26,7 +26,7 @@
             line-height: 1.6;
             color: var(--text-dark);
             background-color: var(--light-bg);
-            overflow-x: hidden; /* Prevent horizontal scroll due to animations */
+            /* Removed overflow-x: hidden as it was related to animations */
         }
 
         /* Headlines will use Montserrat */
@@ -41,49 +41,15 @@
             padding: 20px;
         }
 
-        /* Animations */
-        @keyframes fadeInSlideUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
+        /* Removed @keyframes rules */
 
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-
-        /* General element transitions for smoother hovers */
+        /* General element transitions for smoother hovers (kept as they are not "animation" in the sense of the user's request) */
         a, button, .testimonial-card, .icon-circle {
             transition: all 0.3s ease-in-out;
         }
 
-        /* Elements that animate on load/scroll */
-        /* Removed scarcity-block and live-booking-counter from here, they will animate with their new parent section */
-        .hero h1, .hero h2, .intro-text, .hero .cta-button,
-        section:not(.hero) { /* Exclude hero as it has its own load animation */
-            opacity: 0; /* Hidden by default for animation */
-            transform: translateY(20px); /* Start slightly below */
-        }
-
-        .animated { /* Class added by JS when element is in view */
-            animation: fadeInSlideUp 0.7s ease-out forwards;
-        }
-
-        /* Delay for hero elements */
-        .hero h1 { animation-delay: 0.1s; }
-        .hero h2 { animation-delay: 0.3s; }
-        .intro-text { animation-delay: 0.5s; }
-        .hero .cta-button { animation-delay: 0.7s; }
+        /* Removed initial opacity and transform for elements that were animated */
+        /* All elements will now be visible by default without animation */
 
 
         /* Header/Hero Section */
@@ -93,9 +59,8 @@
             text-align: center;
             padding: 60px 20px;
             position: relative;
-            overflow: hidden;
-            opacity: 1; /* Make visible as parent of animated elements */
-            transform: translateY(0); /* Reset transform from general selector */
+            /* Removed overflow: hidden */
+            /* opacity and transform are now default */
         }
 
         .hero h1 {
@@ -103,12 +68,14 @@
             margin-bottom: 10px;
             line-height: 1.2;
             color: var(--text-light); /* White for H1 on dark background */
+            /* Removed animation-delay */
         }
 
         .hero h2 {
             font-size: 1.8em;
             color: var(--accent-green); /* Green accent for H2 */
             margin-bottom: 25px;
+            /* Removed animation-delay */
         }
 
         .intro-text {
@@ -116,9 +83,10 @@
             max-width: 700px;
             margin: 0 auto 30px;
             color: var(--text-light); /* White text on dark background */
+            /* Removed animation-delay */
         }
 
-        /* Scarcity & Urgency Block (now can be used in different sections) */
+        /* Scarcity & Urgency Block */
         .scarcity-block {
             background-color: var(--primary-dark); /* Dark background matching image style */
             border-radius: 10px;
@@ -128,7 +96,7 @@
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
             border: 2px solid var(--accent-green); /* Green border */
             text-align: center;
-            /* Removed opacity and transform here, controlled by parent .animated or direct placement */
+            /* Removed opacity and transform for animation */
         }
 
         .scarcity-message {
@@ -190,7 +158,7 @@
             align-items: center;
             gap: 8px;
             box-shadow: 0 4px 10px rgba(139, 195, 74, 0.4);
-            /* Removed opacity and transform here, controlled by parent .animated or direct placement */
+            /* Removed opacity and transform for animation */
         }
         .live-booking-counter .icon {
             font-size: 1.3em;
@@ -242,6 +210,7 @@
             margin-bottom: 25px;
             border-radius: 8px;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            /* Removed opacity and transform for animation */
         }
 
         section h3, section h2 {
@@ -1106,7 +1075,7 @@
             <a href="#book-your-call-new" class="cta-button primary-cta">Secure Your Free Strategy Call Now!</a>
 
             <!-- New: Live Counter for Bookings -->
-            <div class="live-booking-counter" id="booking-count-display" style="opacity: 0;"> <!-- Added ID for easier targeting and animated visibility -->
+            <div class="live-booking-counter" id="booking-count-display"> <!-- Removed inline style opacity:0, now visible by default -->
                 <span class="icon">✅</span>
                 <span id="booking-count">10</span> people have booked a call in the last 48 hours!
             </div>
@@ -1279,7 +1248,7 @@
                         </div>
 
                         <!-- DUPLICATED: Scarcity Block and Live Booking Counter -->
-                        <div class="scarcity-block animated">
+                        <div class="scarcity-block"> <!-- Removed class animated -->
                             <p class="scarcity-message">
                                 <span class="icon">🔥</span>
                                 <strong>Urgent!</strong> Due to high demand, we only have <strong id="slots-left-bottom">3</strong> free call slots left for the month!
@@ -1295,7 +1264,7 @@
                             </div>
                         </div>
 
-                        <div class="live-booking-counter animated" id="booking-count-display-bottom">
+                        <div class="live-booking-counter" id="booking-count-display-bottom"> <!-- Removed class animated -->
                             <span class="icon">✅</span>
                             <span id="booking-count-bottom">10</span> people have booked a call in the last 48 hours!
                         </div>
@@ -1369,29 +1338,26 @@
     <script>
         document.addEventListener('DOMContentLoaded', function() {
 
-            // Intersection Observer for scroll animations
-            const observerOptions = {
-                root: null, /* Use the viewport as the root */
-                rootMargin: '0px',
-                threshold: 0.1 /* Trigger when 10% of the item is visible */
-            };
-
-            const observer = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('animated');
-                        observer.unobserve(entry.target); /* Stop observing once animated */
-                    }
-                });
-            }, observerOptions);
-
-            // Observe all sections (excluding hero elements handled by initial animation-delay)
-            document.querySelectorAll('section:not(.hero), .hero h1, .hero h2, .intro-text, .scarcity-block, .hero .cta-button, .live-booking-counter').forEach(el => {
-                observer.observe(el);
-            });
+            // Removed Intersection Observer for scroll animations
+            // const observerOptions = {
+            //     root: null,
+            //     rootMargin: '0px',
+            //     threshold: 0.1
+            // };
+            // const observer = new IntersectionObserver((entries, observer) => {
+            //     entries.forEach(entry => {
+            //         if (entry.isIntersecting) {
+            //             entry.target.classList.add('animated');
+            //             observer.unobserve(entry.target);
+            //         }
+            //     });
+            // }, observerOptions);
+            // document.querySelectorAll('section:not(.hero), .hero h1, .hero h2, .intro-text, .scarcity-block, .hero .cta-button, .live-booking-counter').forEach(el => {
+            //     observer.observe(el);
+            // });
 
 
-            // --- Countdown Timer Logic ---
+            // --- Countdown Timer Logic (Main and Duplicated) ---
             // Set the date we're counting down to (e.g., end of the month)
             // IMPORTANT: Set your actual end date here! Current month is June 2025.
             const countdownDate = new Date("June 30, 2025 23:59:59").getTime(); // Example: End of June 2025
@@ -1418,6 +1384,7 @@
                     document.querySelectorAll("[id^='countdown']").forEach(el => el.innerHTML = "EXPIRED");
                     
                     document.querySelectorAll('.scarcity-block').forEach(scarcityBlock => {
+                        // Removed 'animated' class from innerHTML for consistency
                         scarcityBlock.innerHTML = `
                             <p class="scarcity-message expired-message">
                                 <span class="icon">❌</span> All slots for this month are now booked!
@@ -1435,7 +1402,10 @@
                     }
                     // The hero CTA is still shown initially, but now it needs to be hidden on expiry.
                     // This was previously handled but now needs to be re-evaluated due to duplication.
-                    document.querySelector('.hero .primary-cta').style.display = 'none';
+                    const heroCta = document.querySelector('.hero .primary-cta');
+                    if (heroCta) {
+                        heroCta.style.display = 'none';
+                    }
 
                     if (document.querySelector('.booking-form-original .sub-headline')) {
                         document.querySelector('.booking-form-original .sub-headline').textContent = "We are currently fully booked. Join our waitlist for future openings!";
@@ -1461,13 +1431,13 @@
                 // Update ALL booking count displays
                 document.querySelectorAll("[id^='booking-count']").forEach(el => el.textContent = currentBookings);
 
-                // Make ALL counters "pulse" or update visually (optional, for more subtle effect)
-                document.querySelectorAll(".live-booking-counter").forEach(counterDisplay => {
-                    counterDisplay.classList.add('pulse-effect');
-                    setTimeout(() => {
-                        counterDisplay.classList.remove('pulse-effect');
-                    }, 500);
-                });
+                // Removed pulse effect for animations
+                // document.querySelectorAll(".live-booking-counter").forEach(counterDisplay => {
+                //     counterDisplay.classList.add('pulse-effect');
+                //     setTimeout(() => {
+                //         counterDisplay.classList.remove('pulse-effect');
+                //     }, 500);
+                // });
             }
 
             // Update the booking count every 30-60 seconds

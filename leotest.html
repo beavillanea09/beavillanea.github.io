@@ -175,6 +175,32 @@
             display: inline-block;
         }
 
+        /* New: Live Counter for Bookings */
+        .live-booking-counter {
+            background-color: var(--accent-green);
+            color: var(--primary-dark);
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-weight: bold;
+            font-size: 1.1em;
+            margin: 20px auto 0;
+            max-width: fit-content;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 10px rgba(139, 195, 74, 0.4);
+            animation: fadeIn 0.5s ease-out forwards;
+            animation-delay: 1.1s; /* Appear after CTA button */
+            opacity: 0; /* Hidden initially for animation */
+        }
+        .live-booking-counter .icon {
+            font-size: 1.3em;
+        }
+        .live-booking-counter strong {
+            font-size: 1.2em;
+            color: var(--primary-dark);
+        }
+
 
         /* CTA Button - Global Primary Style */
         .cta-button {
@@ -391,11 +417,116 @@
             box-shadow: 0 0 15px rgba(0,0,0,0.2);
         }
 
+        /* New styles for coach section enhancements */
+        .coach-profile h3 {
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            color: var(--primary-dark);
+            text-align: center;
+            width: 100%;
+        }
+
         .coach-profile p {
             font-size: 1.1em;
             line-height: 1.7;
             color: var(--text-dark); /* Dark text */
         }
+
+        .why-choose-me {
+            width: 100%;
+            text-align: left;
+            margin-top: 20px;
+        }
+        .why-choose-me h4 {
+            font-size: 1.4em;
+            color: var(--primary-dark);
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        .why-choose-me ul {
+            list-style: none;
+            padding: 0;
+            display: grid;
+            grid-template-columns: 1fr; /* Single column for now, adjust for larger screens */
+            gap: 15px;
+        }
+        .why-choose-me li {
+            display: flex;
+            align-items: flex-start;
+            background-color: var(--light-bg);
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        .why-choose-me li h5 {
+            margin: 0 0 5px 0;
+            font-size: 1.05em;
+            color: var(--text-dark);
+        }
+        .why-choose-me li p {
+            margin: 0;
+            font-size: 0.85em;
+            color: #666;
+        }
+        .icon-circle.small-icon {
+            width: 35px;
+            height: 35px;
+            font-size: 1.5em;
+            margin-right: 10px;
+            box-shadow: none; /* Lighter shadow for smaller icons */
+            border: 1px solid var(--accent-green);
+        }
+        .coach-mission {
+            width: 100%;
+            margin-top: 30px;
+            padding: 20px;
+            background-color: var(--light-bg);
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            border-left: 5px solid var(--accent-green); /* Accent border */
+            text-align: left;
+        }
+        .coach-mission .quote-text {
+            font-style: italic;
+            color: var(--text-dark);
+            margin-bottom: 10px;
+            font-size: 1.05em;
+        }
+        .coach-mission .quote-author {
+            font-weight: bold;
+            color: var(--primary-dark);
+            display: block;
+            text-align: right;
+            font-size: 0.9em;
+        }
+
+        .coach-cta-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 40px;
+            width: 100%;
+        }
+        .coach-cta-buttons .cta-button {
+            margin-top: 0; /* Override default margin-top from .cta-button */
+            font-size: 1.1em;
+            padding: 12px 25px;
+            flex-grow: 1; /* Allow buttons to grow */
+            max-width: 300px; /* Limit max width */
+        }
+        .coach-cta-buttons .secondary-cta {
+            background-color: transparent;
+            border: 2px solid var(--accent-green);
+            color: var(--accent-green);
+            box-shadow: none;
+        }
+        .coach-cta-buttons .secondary-cta:hover {
+            background-color: var(--accent-green);
+            color: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
 
         /* Main Booking Section (Ready to Master Your Golf Mindset...) */
         .book-your-call-section {
@@ -492,7 +623,7 @@
         }
 
         .coach-message {
-            font-size: 1em;
+            font-size: 1.em;
             color: var(--text-dark); /* Dark text */
             margin-bottom: 25px;
         }
@@ -636,12 +767,12 @@
         }
         .no-pressure-block .quote-text {
             font-style: italic;
-            color: var(--text-dark); /* Dark text */
+            color: var(--text-dark);
             margin-top: 15px;
         }
         .no-pressure-block .quote-author {
             font-weight: bold;
-            color: var(--primary-dark); /* Dark text */
+            color: var(--primary-dark);
             display: block;
             margin-top: 5px;
         }
@@ -814,6 +945,15 @@
             width: 100%; /* Take full width */
             box-sizing: border-box; /* Include padding in width */
         }
+        .cta-after-testimonials {
+            padding: 30px 20px;
+            text-align: center;
+            margin-top: -25px; /* Pull it up slightly to feel more connected to testimonials */
+            background-color: var(--light-bg); /* Match testimonial background */
+            border-bottom-left-radius: 8px;
+            border-bottom-right-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05); /* Subtle shadow */
+        }
 
 
         /* Responsive Design */
@@ -880,6 +1020,10 @@
                 font-size: 1.2em;
                 padding: 15px 20px;
             }
+            /* Responsive for why-choose-me on smaller screens */
+            .why-choose-me ul {
+                grid-template-columns: 1fr;
+            }
         }
 
         @media (max-width: 480px) {
@@ -928,6 +1072,10 @@
             .stat-label {
                 font-size: 0.8em;
             }
+            .live-booking-counter {
+                font-size: 0.9em;
+                padding: 8px 15px;
+            }
         }
     </style>
 </head>
@@ -942,7 +1090,7 @@
             <div class="scarcity-block">
                 <p class="scarcity-message">
                     <span class="icon">🔥</span>
-                    **Urgent!** Due to high demand, we only have <strong id="slots-left">3</strong> free call slots left for the month!
+                    <strong>Urgent!</strong> Due to high demand, we only have <strong id="slots-left">3</strong> free call slots left for the month!
                 </p>
                 <div class="countdown-timer">
                     <p>Offer Ends In:</p>
@@ -956,6 +1104,12 @@
             </div>
 
             <a href="#book-your-call-new" class="cta-button primary-cta">Secure Your Free Strategy Call Now!</a>
+
+            <!-- New: Live Counter for Bookings -->
+            <div class="live-booking-counter" id="booking-count-display" style="opacity: 0;"> <!-- Added ID for easier targeting and animated visibility -->
+                <span class="icon">✅</span>
+                <span id="booking-count">10</span> people have booked a call in the last 48 hours!
+            </div>
         </div>
     </header>
 
@@ -990,7 +1144,7 @@
                         <p>"The insights on course management and pre-shot routines were invaluable. My consistency has skyrocketed."</p>
                         <cite>- John D., Club Champion</cite>
                     </div>
-                     <div class="testimonial-card">
+                    <div class="testimonial-card">
                         <div class="star-rating">⭐⭐⭐⭐⭐</div>
                         <p>"I used to get so frustrated, but now I enjoy every round, even the bad ones. It's truly about the mindset."</p>
                         <cite>- Lisa M., Golf Enthusiast</cite>
@@ -1003,11 +1157,66 @@
             </div>
         </section>
 
+        <!-- New CTA added directly after testimonials -->
+        <div class="cta-after-testimonials">
+            <a href="#book-your-call-new" class="cta-button primary-cta">
+                <i class="far fa-calendar-alt"></i> Book Your FREE Strategy Call Now!
+            </a>
+            <p class="booking-note">Don't miss out on these limited slots – transform your game today!</p>
+        </div>
+
+
         <section class="authority-section">
-            <h3>Meet Your LH3 Golf Coach:</h3>
+            <h2 class="section-main-headline">Why Golfers Choose LH3 Golf Coaching</h2>
+            <p class="section-sub-headline">Discover the unique approach that helps golfers like you master their mental game and lower their scores.</p>
             <div class="coach-profile">
                 <img src="https://placehold.co/150x150/8BC34A/1a1a1a?text=Coach+Avatar" alt="LH3 Golf Coach" class="coach-avatar">
-                <p><strong>[Coach's Name]</strong> is a certified mental performance coach with 15+ years of experience helping golfers of all levels unlock their true potential. [He/She] combines deep understanding of golf psychology with practical strategies to deliver measurable results. [He/She] has worked with [mention any notable achievements or affiliations, e.g., professional athletes, top academies].</p>
+                <h3>Hi, I'm Leo!</h3>
+                <p>With <strong>15+ years of experience</strong> in golf psychology and performance coaching, I help golfers of all levels break through mental barriers and unlock their true potential. My approach combines deep understanding of golf mindset with practical, actionable strategies.</p>
+
+                <div class="why-choose-me">
+                    <h4>Why Visionary Golfers Choose My Coaching:</h4>
+                    <ul>
+                        <li>
+                            <span class="icon-circle small-icon"><i class="fas fa-medal"></i></span>
+                            <div>
+                                <h5>15+ Years of Proven Excellence</h5>
+                                <p>A consistent track record of helping golfers achieve significant score reductions and mental breakthroughs.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="icon-circle small-icon"><i class="fas fa-certificate"></i></span>
+                            <div>
+                                <h5>Certified Mental Performance Coach</h5>
+                                <p>Expert-level knowledge in sports psychology, ensuring scientifically-backed strategies for your game.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="icon-circle small-icon"><i class="fas fa-brain"></i></span>
+                            <div>
+                                <h5>Strategic Mindset Partner</h5>
+                                <p>Beyond technique, we address course management, pressure handling, and maintaining focus for sustained improvement.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="icon-circle small-icon"><i class="fas fa-heart-pulse"></i></span>
+                            <div>
+                                <h5>Dedicated & Resilient Support</h5>
+                                <p>Committed to your long-term success, I'll go the distance to ensure you achieve your golfing aspirations.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="coach-mission">
+                    <h4>My Mission:</h4>
+                    <p class="quote-text">"My mission is simple: To empower you to gain ultimate control over your golf game, eliminate mental errors, and rediscover the pure joy of playing golf at your highest potential."</p>
+                    <span class="quote-author">- Leo</span>
+                </div>
+            </div>
+            <div class="coach-cta-buttons">
+                <a href="#book-your-call-new" class="cta-button primary-cta">Let's Discuss Your Vision</a>
+                <a href="#testimonialCarousel" class="cta-button secondary-cta">Read Success Stories</a>
             </div>
         </section>
 
@@ -1064,7 +1273,7 @@
                         <div class="button-group">
                             <a href="#callBookingFormSection" class="cta-button primary-cta full-width-cta">
                                 <i class="far fa-calendar-alt"></i> <!-- Calendar Icon -->
-                                Book Your FREE Strategy Call Now
+                                Book Your FREE Strategy Call Now!
                             </a>
                             <p class="booking-note">Typically books within 24-48 hours</p>
                         </div>
@@ -1119,6 +1328,7 @@
             <div class="faq-item">
                 <h4>What if I need to reschedule?</h4>
                 <p>You'll find a link in your confirmation email to easily reschedule your call at your convenience.</p>
+            </p>
             </div>
         </section>
         
@@ -1153,7 +1363,7 @@
             }, observerOptions);
 
             // Observe all sections (excluding hero elements handled by initial animation-delay)
-            document.querySelectorAll('section:not(.hero), .hero h1, .hero h2, .intro-text, .scarcity-block, .hero .cta-button').forEach(el => {
+            document.querySelectorAll('section:not(.hero), .hero h1, .hero h2, .intro-text, .scarcity-block, .hero .cta-button, .live-booking-counter').forEach(el => {
                 observer.observe(el);
             });
 
@@ -1204,11 +1414,36 @@
                     if (document.querySelector('.booking-widget-placeholder')) {
                         document.querySelector('.booking-widget-placeholder').innerHTML = '<p><em>Please join the waitlist above to be notified of new openings.</em></p>';
                     }
+                    // Hide the booking counter when slots are expired
+                    const bookingCounter = document.getElementById('booking-count-display');
+                    if (bookingCounter) {
+                        bookingCounter.style.display = 'none';
+                    }
                 }
             }, 1000);
 
+            // --- Live Booking Counter Logic ---
+            let currentBookings = 10; // Starting number of bookings
+            const bookingCountElement = document.getElementById('booking-count');
+            const bookingCounterDisplay = document.getElementById('booking-count-display'); // Get the display div
 
-     
+            function updateBookingCount() {
+                // Simulate new bookings
+                const randomIncrement = Math.floor(Math.random() * 3); // Adds 0, 1, or 2 new bookings
+                currentBookings += randomIncrement;
+                bookingCountElement.textContent = currentBookings;
+
+                // Make the counter "pulse" or update visually (optional, for more subtle effect)
+                bookingCounterDisplay.classList.add('pulse-effect');
+                setTimeout(() => {
+                    bookingCounterDisplay.classList.remove('pulse-effect');
+                }, 500);
+            }
+
+            // Update the booking count every 30-60 seconds
+            setInterval(updateBookingCount, Math.floor(Math.random() * (60000 - 30000 + 1)) + 30000); // Between 30 and 60 seconds
+
+           
             // --- Testimonial Carousel Logic ---
             const carousel = document.getElementById('testimonialCarousel');
             const prevBtn = document.getElementById('prevBtn');

@@ -1,0 +1,1267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LH3 Golf Coaching: Book Your Free Call & Master Your Game!</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Brand Colors & Fonts (Inferred from The Connected Golfer) */
+        :root {
+            --primary-dark: #1a1a1a; /* Very dark gray/off-black, inferred from website background */
+            --accent-green: #8BC34A; /* Vibrant green accent color, prominent on website */
+            --text-light: #ffffff; /* White text for dark backgrounds */
+            --text-dark: #333333; /* Standard dark text for light backgrounds */
+            --light-bg: #f9f9f9; /* General light background color */
+            --soft-red: #e57373; /* Keeping a distinct soft red for urgent banners (warning) */
+        }
+
+        /* Base Fonts */
+        body {
+            font-family: 'Roboto', sans-serif; /* General body text */
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--light-bg);
+            overflow-x: hidden; /* Prevent horizontal scroll due to animations */
+        }
+
+        /* Headlines will use Montserrat */
+        h1, h2, h3, h4, h5, .section-main-headline, .total-value-text {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--primary-dark);
+        }
+
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Animations */
+        @keyframes fadeInSlideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* General element transitions for smoother hovers */
+        a, button, .testimonial-card, .icon-circle {
+            transition: all 0.3s ease-in-out;
+        }
+
+        /* Elements that animate on load/scroll */
+        .hero h1, .hero h2, .intro-text, .scarcity-block, .hero .cta-button,
+        section:not(.hero) { /* Exclude hero as it has its own load animation */
+            opacity: 0; /* Hidden by default for animation */
+            transform: translateY(20px); /* Start slightly below */
+        }
+
+        .animated { /* Class added by JS when element is in view */
+            animation: fadeInSlideUp 0.7s ease-out forwards;
+        }
+
+        /* Delay for hero elements */
+        .hero h1 { animation-delay: 0.1s; }
+        .hero h2 { animation-delay: 0.3s; }
+        .intro-text { animation-delay: 0.5s; }
+        .scarcity-block { animation-delay: 0.7s; }
+        .hero .cta-button { animation-delay: 0.9s; }
+
+
+        /* Header/Hero Section */
+        .hero {
+            background: var(--primary-dark); /* Dark background */
+            color: var(--text-light);
+            text-align: center;
+            padding: 60px 20px;
+            position: relative;
+            overflow: hidden;
+            opacity: 1; /* Make visible as parent of animated elements */
+            transform: translateY(0); /* Reset transform from general selector */
+        }
+
+        .hero h1 {
+            font-size: 2.8em;
+            margin-bottom: 10px;
+            line-height: 1.2;
+            color: var(--text-light); /* White for H1 on dark background */
+        }
+
+        .hero h2 {
+            font-size: 1.8em;
+            color: var(--accent-green); /* Green accent for H2 */
+            margin-bottom: 25px;
+        }
+
+        .intro-text {
+            font-size: 1.1em;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            color: var(--text-light); /* White text on dark background */
+        }
+
+        /* Scarcity & Urgency Block */
+        .scarcity-block {
+            background-color: var(--primary-dark); /* Dark background matching image style */
+            border-radius: 10px;
+            padding: 20px;
+            margin: 30px auto;
+            max-width: 500px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            border: 2px solid var(--accent-green); /* Green border */
+            text-align: center;
+        }
+
+        .scarcity-message {
+            font-size: 1.3em;
+            font-weight: bold;
+            color: var(--accent-green); /* Green accent for message */
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .scarcity-message.expired-message {
+            color: var(--soft-red); /* Red for expired */
+        }
+
+        .scarcity-message .icon {
+            font-size: 1.5em;
+            margin-right: 10px;
+            flex-shrink: 0;
+        }
+        .scarcity-message strong {
+            color: var(--accent-green); /* Ensure slots number is also green */
+        }
+
+        .countdown-timer p {
+            font-size: 1.1em;
+            margin-bottom: 5px;
+            color: var(--text-light); /* Light text */
+            text-align: center;
+        }
+
+        .timer-display {
+            font-size: 2.2em;
+            font-weight: 700;
+            color: var(--text-light); /* Light text */
+            background-color: rgba(0, 0, 0, 0.3);
+            padding: 10px 20px;
+            border-radius: 8px;
+            display: inline-block;
+        }
+
+        .timer-display span {
+            min-width: 40px;
+            display: inline-block;
+        }
+
+
+        /* CTA Button - Global Primary Style */
+        .cta-button {
+            display: inline-block;
+            background-color: var(--accent-green); /* Green button */
+            color: var(--primary-dark); /* Dark text on green */
+            padding: 15px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2em;
+            margin-top: 30px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .cta-button:hover {
+            background-color: #aed581; /* Lighter green on hover */
+            transform: translateY(-3px);
+        }
+
+        .primary-cta {
+            background-color: var(--accent-green);
+            color: var(--primary-dark);
+        }
+
+        .primary-cta:hover {
+            background-color: #aed581;
+        }
+
+        .cta-button.small-cta {
+            padding: 10px 20px;
+            font-size: 1em;
+            margin-top: 10px;
+        }
+
+        /* Sections */
+        section {
+            background-color: var(--text-light); /* White background */
+            padding: 40px;
+            margin-bottom: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        section h3, section h2 {
+            color: var(--primary-dark); /* Dark text */
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2em;
+        }
+
+        /* What You Get Section (General) */
+        .what-you-get ul {
+            list-style: none;
+            padding: 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            text-align: center;
+        }
+
+        .what-you-get li {
+            background-color: var(--light-bg); /* Light background */
+            padding: 20px;
+            border-radius: 5px;
+            font-size: 1.1em;
+            color: var(--text-dark);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .what-you-get li strong {
+            color: var(--primary-dark); /* Dark text */
+        }
+
+
+        /* Testimonials Carousel */
+        .testimonials {
+            background-color: var(--light-bg); /* Light background */
+            position: relative;
+            padding-top: 40px;
+            padding-bottom: 40px;
+        }
+        .testimonials h3 {
+            position: relative;
+            text-align: center;
+            margin-top: 0;
+            margin-bottom: 30px;
+            font-size: 2em;
+        }
+
+        .carousel-container {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+            overflow: hidden;
+            padding-bottom: 20px;
+        }
+
+        .carousel-wrapper {
+            display: flex;
+            overflow-x: scroll;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+            scroll-behavior: smooth;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+            padding-bottom: 10px;
+        }
+
+        .carousel-wrapper::-webkit-scrollbar {
+            display: none;
+        }
+
+        .testimonial-card {
+            flex: 0 0 300px;
+            min-width: 300px;
+            box-sizing: border-box;
+            margin-right: 20px;
+            scroll-snap-align: start;
+            background-color: var(--text-light); /* White background */
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .testimonial-card:last-child {
+            margin-right: 0;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .star-rating {
+            color: var(--accent-green); /* Green stars */
+            font-size: 1.4em;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+        }
+
+
+        .testimonial-card p {
+            margin-bottom: 15px;
+            font-size: 1.05em;
+            color: var(--text-dark); /* Dark text */
+            font-style: italic;
+        }
+
+        .testimonial-card cite {
+            display: block;
+            text-align: center;
+            font-style: normal;
+            font-weight: bold;
+            color: var(--primary-dark); /* Dark text */
+        }
+
+        .carousel-nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            transform: translateY(-50%);
+            pointer-events: none;
+        }
+
+        .carousel-button {
+            background-color: rgba(26, 26, 26, 0.7); /* Dark semi-transparent */
+            color: var(--text-light); /* Light text */
+            border: none;
+            border-radius: 50%;
+            width: 45px;
+            height: 45px;
+            font-size: 1.8em;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            z-index: 10;
+            pointer-events: all;
+            user-select: none;
+        }
+
+        .carousel-button:hover {
+            background-color: var(--primary-dark); /* Darker on hover */
+        }
+
+        /* Authority Section */
+        .authority-section {
+            text-align: center;
+        }
+        .coach-profile {
+            max-width: 600px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .coach-avatar {
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border: 5px solid var(--accent-green); /* Green border */
+            box-shadow: 0 0 15px rgba(0,0,0,0.2);
+        }
+
+        .coach-profile p {
+            font-size: 1.1em;
+            line-height: 1.7;
+            color: var(--text-dark); /* Dark text */
+        }
+
+        /* Main Booking Section (Ready to Master Your Golf Mindset...) */
+        .book-your-call-section {
+            background-color: var(--light-bg); /* Use a general light background */
+            padding: 50px 20px;
+            margin-bottom: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            text-align: center;
+        }
+
+        .section-main-headline {
+            font-size: 3em;
+            color: var(--primary-dark); /* Dark text for headlines */
+            margin-bottom: 10px;
+            line-height: 1.2;
+            font-weight: 700;
+        }
+
+        .section-main-headline .highlight {
+            color: var(--primary-dark); /* No specific highlight color for text as per new brand */
+            display: inline-block;
+        }
+        .section-main-headline .ampersand {
+            font-size: 0.8em;
+            vertical-align: middle;
+            margin: 0 5px;
+        }
+
+        .section-sub-headline {
+            font-size: 1.3em;
+            color: var(--text-dark); /* Darker text */
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+
+        .urgent-banner {
+            background-color: var(--soft-red); /* Keeping soft red for urgent banner (warning) */
+            color: var(--text-light);
+            padding: 12px 25px;
+            border-radius: 25px;
+            font-weight: bold;
+            margin: 20px auto 40px auto;
+            max-width: fit-content;
+            text-transform: none;
+            letter-spacing: normal;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .content-columns {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-top: 30px;
+            align-items: flex-start;
+        }
+
+        .column {
+            flex: 1;
+            min-width: 300px;
+            box-sizing: border-box;
+        }
+
+        .left-column, .right-column {
+            background-color: var(--text-light); /* White background for columns */
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+        }
+        .left-column {
+            text-align: left;
+        }
+        .right-column {
+            align-items: center;
+            text-align: center;
+        }
+
+        .coach-column-avatar {
+            border-radius: 50%;
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+            margin-bottom: 20px;
+            border: 4px solid var(--accent-green); /* Green border */
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        .accelerate-growth-block h3 {
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            color: var(--primary-dark); /* Dark text */
+        }
+
+        .coach-message {
+            font-size: 1em;
+            color: var(--text-dark); /* Dark text */
+            margin-bottom: 25px;
+        }
+
+        .stats-row {
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+            margin-bottom: 30px;
+        }
+
+        .stat-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .stat-value {
+            font-size: 2em;
+            font-weight: bold;
+            color: var(--accent-green); /* Green accent */
+        }
+
+        .stat-label {
+            font-size: 0.9em;
+            color: #777;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .contact-info {
+            font-size: 0.95em;
+            color: #666;
+            line-height: 1.8;
+            text-align: left;
+            width: 100%;
+        }
+        .contact-info .icon {
+            margin-right: 8px;
+            font-size: 1.2em;
+            vertical-align: middle;
+        }
+
+
+        .what-you-get-call {
+            margin-bottom: 30px;
+            width: 100%;
+            text-align: left;
+        }
+        .what-you-get-call h4 {
+            font-size: 1.6em;
+            color: var(--primary-dark); /* Dark text */
+            margin-top: 0;
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .what-you-get-call ul {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 0;
+        }
+
+        .what-you-get-call li {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+            text-align: left;
+        }
+
+        .icon-circle {
+            background-color: var(--light-bg); /* Light background for circles */
+            color: var(--accent-green); /* Green icons */
+            border-radius: 50%;
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8em;
+            flex-shrink: 0;
+            margin-right: 15px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .icon-circle:hover {
+            transform: scale(1.1); /* Subtle pulse on hover */
+        }
+
+        .what-you-get-call li h5 {
+            margin: 0 0 5px 0;
+            font-size: 1.1em;
+            color: var(--text-dark); /* Dark text */
+        }
+
+        .what-you-get-call li p {
+            margin: 0;
+            font-size: 0.9em;
+            color: #666;
+        }
+        .what-you-get-call li .value-text {
+            font-size: 0.9em;
+            font-weight: bold;
+            color: var(--accent-green); /* Green for value text */
+            margin-left: 10px;
+            flex-shrink: 0;
+        }
+        .total-value-text {
+            font-size: 1.3em;
+            font-weight: bold;
+            color: var(--primary-dark); /* Dark text */
+            margin-top: 25px;
+            text-align: center;
+            width: 100%;
+        }
+        .total-value-text .value {
+            color: var(--accent-green); /* Green for total value */
+        }
+        .total-value-text .free-emphasis {
+            font-size: 0.9em;
+            font-weight: normal;
+            color: var(--soft-red); /* Soft red for emphasis */
+            display: block;
+            margin-top: 5px;
+        }
+
+        .no-pressure-block {
+            background-color: var(--light-bg); /* Light background for this block */
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            margin-top: 30px;
+            text-align: center;
+            border: 1px solid #eee;
+        }
+
+        .no-pressure-block h4 {
+            font-size: 1.4em;
+            color: var(--primary-dark); /* Dark text */
+            margin-bottom: 10px;
+        }
+        .no-pressure-block .quote-text {
+            font-style: italic;
+            color: var(--text-dark); /* Dark text */
+            margin-top: 15px;
+        }
+        .no-pressure-block .quote-author {
+            font-weight: bold;
+            color: var(--primary-dark); /* Dark text */
+            display: block;
+            margin-top: 5px;
+        }
+
+
+        /* Styling for the button group (button + note) */
+        .button-group {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            margin-top: 25px;
+            padding-top: 0;
+        }
+
+        .full-width-cta {
+            width: 100%;
+            max-width: 350px;
+            margin-top: 0;
+            padding: 18px 25px;
+            font-size: 1.4em;
+            background-color: var(--accent-green); /* Green CTA button */
+            color: var(--primary-dark); /* Dark text on button */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            border-radius: 25px;
+            box-shadow: 0 4px 10px rgba(139, 195, 74, 0.4); /* Green shadow */
+        }
+        .full-width-cta:hover {
+            background-color: #aed581; /* Lighter green on hover */
+            transform: translateY(-3px);
+        }
+        .booking-note {
+            font-size: 0.9em;
+            color: #777;
+            margin-top: 10px;
+            text-align: center;
+        }
+
+
+        /* Original Booking Form Section */
+        .booking-form-original {
+            background-color: var(--text-light); /* White background */
+            padding: 40px;
+            margin-top: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            text-align: center;
+        }
+
+        .booking-form-original h2 {
+            color: var(--primary-dark); /* Dark text */
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2em;
+        }
+
+        .booking-form-original .sub-headline {
+            font-size: 1.2em;
+            color: #555;
+            margin-bottom: 30px;
+        }
+
+        .simple-booking-form {
+            max-width: 500px;
+            margin: 30px auto;
+            padding: 30px;
+            background-color: var(--light-bg); /* Light background */
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            text-align: left;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: var(--text-dark); /* Dark text */
+        }
+
+        .form-group input[type="text"],
+        .form-group input[type="email"],
+        .form-group input[type="tel"],
+        .form-group input[type="date"],
+        .form-group select {
+            width: calc(100% - 20px);
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+
+        .simple-booking-form .cta-button {
+            width: 100%;
+            margin-top: 20px;
+            font-size: 1.3em;
+            padding: 18px 30px;
+        }
+
+        .privacy-note {
+            font-size: 0.9em;
+            color: #777;
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        .booking-widget-placeholder {
+            border: 2px dashed #ccc;
+            padding: 40px;
+            border-radius: 8px;
+            background-color: var(--light-bg); /* Light background */
+            margin-bottom: 30px;
+        }
+
+
+        /* FAQ Section */
+        .faq-item {
+            margin-bottom: 20px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 15px;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .faq-item h4 {
+            font-size: 1.3em;
+            color: var(--primary-dark); /* Dark text */
+            margin-bottom: 8px;
+        }
+
+        .faq-item p {
+            color: #555;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 30px;
+            background-color: var(--primary-dark); /* Dark background */
+            color: #aaa;
+            font-size: 0.9em;
+        }
+
+        footer a {
+            color: #aaa;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* New container for the button after FAQ */
+        .cta-button-bottom-container {
+            text-align: center; /* Ensures the button is centered in the container */
+            padding: 30px 20px; /* Add padding for spacing */
+            display: flex; /* Use flexbox to correctly center the inline-block button */
+            justify-content: center; /* Center horizontally */
+            align-items: center; /* Center vertically if needed */
+            width: 100%; /* Take full width */
+            box-sizing: border-box; /* Include padding in width */
+        }
+
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.2em;
+            }
+
+            .hero h2 {
+                font-size: 1.5em;
+            }
+
+            .timer-display {
+                font-size: 1.8em;
+            }
+
+            .what-you-get ul {
+                grid-template-columns: 1fr;
+            }
+             .testimonial-card {
+                flex: 0 0 90%;
+                min-width: 90%;
+                margin-right: 5%;
+            }
+
+            .coach-profile {
+                flex-direction: column;
+            }
+            .carousel-nav-buttons {
+                top: auto;
+                bottom: 0px;
+                transform: none;
+                position: relative;
+                margin-top: 10px;
+                padding: 0 20px;
+            }
+            .carousel-button#prevBtn {
+                margin-left: 0;
+            }
+            .carousel-button#nextBtn {
+                margin-right: 0;
+            }
+
+            .section-main-headline {
+                font-size: 2em;
+            }
+            .section-sub-headline {
+                font-size: 1.1em;
+            }
+            .content-columns {
+                flex-direction: column;
+                gap: 20px;
+            }
+            .left-column, .right-column {
+                padding: 20px;
+            }
+            .accelerate-growth-block h3 {
+                font-size: 1.5em;
+            }
+            .what-you-get-call h4 {
+                font-size: 1.4em;
+            }
+            .full-width-cta {
+                font-size: 1.2em;
+                padding: 15px 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero {
+                padding: 40px 15px;
+            }
+            .hero h1 {
+                font-size: 1.8em;
+            }
+            .hero h2 {
+                font-size: 1.2em;
+            }
+            .scarcity-block {
+                padding: 15px;
+            }
+            .scarcity-message {
+                font-size: 1.1em;
+            }
+            .timer-display {
+                font-size: 1.5em;
+                padding: 8px 15px;
+            }
+            .cta-button {
+                font-size: 1em;
+                padding: 12px 25px;
+            }
+            section {
+                padding: 25px 15px;
+            }
+            section h3, section h2 {
+                font-size: 1.6em;
+            }
+            .simple-booking-form {
+                padding: 20px;
+            }
+            .section-main-headline {
+                font-size: 1.8em;
+            }
+            .urgent-banner {
+                font-size: 0.9em;
+                padding: 8px 15px;
+            }
+            .stat-value {
+                font-size: 1.8em;
+            }
+            .stat-label {
+                font-size: 0.8em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="hero">
+        <div class="container">
+            <h1>Ready to Master Your Golf Mindset?</h1>
+            <h2>Book Your FREE Strategy Call Now – Limited Slots Available This Month!</h2>
+            <p class="intro-text">Transform your game, reduce mental errors, and unlock your true potential on the course. This 30-minute call is your first step towards becoming a truly Connected Golfer.</p>
+
+            <div class="scarcity-block">
+                <p class="scarcity-message">
+                    <span class="icon">🔥</span>
+                    **Urgent!** Due to high demand, we only have <strong id="slots-left">3</strong> free call slots left for the month!
+                </p>
+                <div class="countdown-timer">
+                    <p>Offer Ends In:</p>
+                    <div id="countdown" class="timer-display">
+                        <span id="days">00</span>d :
+                        <span id="hours">00</span>h :
+                        <span id="minutes">00</span>m :
+                        <span id="seconds">00</span>s
+                    </div>
+                </div>
+            </div>
+
+            <a href="#book-your-call-new" class="cta-button primary-cta">Secure Your Free Strategy Call Now!</a>
+        </div>
+    </header>
+
+    <main class="container">
+
+        <section class="testimonials">
+            <h3>Hear From Golfers Like You:</h3>
+            <div class="carousel-container">
+                <div class="carousel-wrapper" id="testimonialCarousel">
+                    <div class="testimonial-card">
+                        <div class="star-rating">⭐⭐⭐⭐⭐</div>
+                        <p>"My handicap dropped 5 strokes! LH3 Golf's coaching changed my entire approach to the game. Highly recommend!"</p>
+                        <cite>- Mark T., Avid Golfer</cite>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="star-rating">⭐⭐⭐⭐⭐</div>
+                        <p>"Finally feeling confident under pressure. The mental strategies are game-changers. Best decision I made for my golf!"</p>
+                        <cite>- Sarah L., Competitive Amateur</cite>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="star-rating">⭐⭐⭐⭐⭐</div>
+                        <p>"From frustration to flow! The personalized guidance helped me eliminate my mental blocks. Truly transformative."</p>
+                        <cite>- David P., Weekend Warrior</cite>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="star-rating">⭐⭐⭐⭐⭐</div>
+                        <p>"LH3 Golf helped me overcome my yips! I thought my golfing days were over, but now I'm playing better than ever."</p>
+                        <cite>- Emily R., Recreational Player</p>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="star-rating">⭐⭐⭐⭐⭐</div>
+                        <p>"The insights on course management and pre-shot routines were invaluable. My consistency has skyrocketed."</p>
+                        <cite>- John D., Club Champion</cite>
+                    </div>
+                     <div class="testimonial-card">
+                        <div class="star-rating">⭐⭐⭐⭐⭐</div>
+                        <p>"I used to get so frustrated, but now I enjoy every round, even the bad ones. It's truly about the mindset."</p>
+                        <cite>- Lisa M., Golf Enthusiast</cite>
+                    </div>
+                </div>
+                <div class="carousel-nav-buttons">
+                    <button id="prevBtn" class="carousel-button">‹</button>
+                    <button id="nextBtn" class="carousel-button">›</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="authority-section">
+            <h3>Meet Your LH3 Golf Coach:</h3>
+            <div class="coach-profile">
+                <img src="https://placehold.co/150x150/8BC34A/1a1a1a?text=Coach+Avatar" alt="LH3 Golf Coach" class="coach-avatar">
+                <p><strong>[Coach's Name]</strong> is a certified mental performance coach with 15+ years of experience helping golfers of all levels unlock their true potential. [He/She] combines deep understanding of golf psychology with practical strategies to deliver measurable results. [He/She] has worked with [mention any notable achievements or affiliations, e.g., professional athletes, top academies].</p>
+            </div>
+        </section>
+
+        <!-- NEW SECTION: Ready to Transform Your Game? Book Your Call! (Replicating image) -->
+        <section id="book-your-call-new" class="book-your-call-section">
+            <div class="container">
+                <h2 class="section-main-headline">Ready to <span class="highlight">Master Your Golf Mindset <span class="ampersand">&</span></span> Accelerate Your Game?</h2>
+                <p class="section-sub-headline">Schedule your free 30-minute strategy call and discover exactly how I can help you transform your golf performance, enjoyment and <b>BECOME A CONNECTED GOLFER<b>.</p>
+
+                <div class="urgent-banner">
+                    Limited Slots Available This Month!
+                </div>
+
+                <div class="content-columns">
+                    <div class="column left-column">
+                        <div class="what-you-get-call">
+                            <h4>What You'll Get in Your Free Call:</h4>
+                            <ul>
+                                <li>
+                                    <span class="icon-circle"><i class="fas fa-magnifying-glass"></i></span> <!-- Font Awesome Icon -->
+                                    <div>
+                                        <h5>Game Assessment</h5>
+                                        <p>Identify exactly where mental blocks or operational tasks are hindering your on-course performance. <span class="value-text">($497 Value)</span></p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <span class="icon-circle"><i class="fas fa-bullseye"></i></span> <!-- Font Awesome Icon -->
+                                    <div>
+                                        <h5>Custom Strategy</h5>
+                                        <p>Receive a personalized plan to reclaim control over your game and elevate your performance. <span class="value-text">($997 Value)</span></p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <span class="icon-circle"><i class="fas fa-chart-line"></i></span> <!-- Font Awesome Icon -->
+                                    <div>
+                                        <h5>Growth Roadmap</h5>
+                                        <p>Get a clear path to accelerate consistent improvement and lower your scores. <span class="value-text">($797 Value)</span></p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <span class="icon-circle"><i class="fas fa-gift"></i></span> <!-- Font Awesome Icon -->
+                                    <div>
+                                        <h5>Bonus Resource</h5>
+                                        <p>A free guide to leveraging your mental game for peak golf performance. <span class="value-text">($147 Value)</span></p>
+                                    </div>
+                                </li>
+                            </ul>
+                            <div class="total-value-text">
+                                Total Value: <span class="value">$2,438</span>
+                                <span class="free-emphasis">GET ALL THIS FOR FREE!</span>
+                            </div>
+                        </div>
+                        <!-- Moved CTA button group here -->
+                        <div class="button-group">
+                            <a href="#callBookingFormSection" class="cta-button primary-cta full-width-cta">
+                                <i class="far fa-calendar-alt"></i> <!-- Calendar Icon -->
+                                Book Your FREE Strategy Call Now
+                            </a>
+                            <p class="booking-note">Typically books within 24-48 hours</p>
+                        </div>
+                    </div>
+
+                    <div class="column right-column">
+                        <div class="accelerate-growth-block">
+                            <!-- Coach's Avatar (similar to image) -->
+                            <img src="https://placehold.co/120x120/8BC34A/1a1a1a?text=Coach+Avatar" alt="LH3 Golf Coach Avatar" class="coach-column-avatar">
+                            <h3>Let's Accelerate Your Golf Growth Together!</h3>
+                            <p class="coach-message">I'm genuinely excited to learn about your golf challenges and share exactly how we can work together to achieve your strategic goals. No pressure, just honest advice and actionable strategies.</p>
+
+                            <div class="stats-row">
+                                <div class="stat-item">
+                                    <span class="stat-value">98%</span>
+                                    <span class="stat-label">Client Satisfaction</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-value">45%+</span>
+                                    <span class="stat-label">Performance Increase</span>
+                                </div>
+                            </div>
+
+                            <p class="contact-info">
+                                <span class="icon">✉️</span> your.email@lh3golf.com <br>
+                                <span class="icon">🗓️</span> Available Mon-Fri, 9AM-6PM Your Time <br>
+                                <span class="icon">📍</span> Based in [Your Region], Flexible Schedule
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="no-pressure-block">
+                    <h4>📞 No Sales Pressure 💝 Genuine Value Guaranteed</h4>
+                    <p class="quote-text">"Every conversation starts with understanding your unique needs. I'm here to help, not to push."</p>
+                    <span class="quote-author">- Leo</span>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="faq-section">
+            <h3>Frequently Asked Questions:</h3>
+            <div class="faq-item">
+                <h4>What happens after I book the call?</h4>
+                <p>You'll receive a confirmation email with the meeting link. We'll send a reminder before your scheduled time.</p>
+            </div>
+            <div class="faq-item">
+                <h4>Is this truly free, no strings attached?</h4>
+                <p>Absolutely! This is a complimentary strategy session to understand your needs and see if our coaching is a good fit.</p>
+            </div>
+            <div class="faq-item">
+                <h4>What if I need to reschedule?</h4>
+                <p>You'll find a link in your confirmation email to easily reschedule your call at your convenience.</p>
+            </div>
+        </section>
+        
+        <div class="cta-button-bottom-container"> <!-- New container for centering -->
+            <a href="#book-your-call-new" class="cta-button primary-cta">Secure Your Free Strategy Call Now!</a>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 LH3 Golf. All rights reserved. | <a href="#">Privacy Policy</a></p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+
+            // Intersection Observer for scroll animations
+            const observerOptions = {
+                root: null, /* Use the viewport as the root */
+                rootMargin: '0px',
+                threshold: 0.1 /* Trigger when 10% of the item is visible */
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animated');
+                        observer.unobserve(entry.target); /* Stop observing once animated */
+                    }
+                });
+            }, observerOptions);
+
+            // Observe all sections (excluding hero elements handled by initial animation-delay)
+            document.querySelectorAll('section:not(.hero), .hero h1, .hero h2, .intro-text, .scarcity-block, .hero .cta-button').forEach(el => {
+                observer.observe(el);
+            });
+
+
+            // --- Countdown Timer Logic ---
+            // Set the date we're counting down to (e.g., end of the month)
+            // IMPORTANT: Set your actual end date here! Current month is June 2025.
+            const countdownDate = new Date("June 30, 2025 23:59:59").getTime(); // Example: End of June 2025
+
+            const x = setInterval(function() {
+                const now = new Date().getTime();
+                const distance = countdownDate - now;
+
+                // Calculate days, hours, minutes, seconds
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                // Display the result with leading zeros
+                document.getElementById("days").innerHTML = String(days).padStart(2, '0');
+                document.getElementById("hours").innerHTML = String(hours).padStart(2, '0');
+                document.getElementById("minutes").innerHTML = String(minutes).padStart(2, '0');
+                document.getElementById("seconds").innerHTML = String(seconds).padStart(2, '0');
+
+                // If the countdown is over, write some text and adjust visibility
+                if (distance < 0) {
+                    clearInterval(x);
+                    document.getElementById("countdown").innerHTML = "EXPIRED";
+                    document.querySelector('.scarcity-block').innerHTML = `
+                        <p class="scarcity-message expired-message">
+                            <span class="icon">❌</span> All slots for this month are now booked!
+                        </p>
+                        <p class="scarcity-message expired-message">
+                            Join our waitlist for next month's openings.
+                            <a href="#callBookingFormSection" class="cta-button small-cta">Join Waitlist</a>
+                        </p>
+                    `;
+                    if (document.getElementById('callBookingForm')) {
+                        document.getElementById('callBookingForm').style.display = 'none';
+                    }
+                    if (document.querySelector('.hero .primary-cta')) {
+                        document.querySelector('.hero .primary-cta').style.display = 'none';
+                    }
+                    if (document.querySelector('.booking-form-original .sub-headline')) {
+                        document.querySelector('.booking-form-original .sub-headline').textContent = "We are currently fully booked. Join our waitlist for future openings!";
+                    }
+                    if (document.querySelector('.booking-widget-placeholder')) {
+                        document.querySelector('.booking-widget-placeholder').innerHTML = '<p><em>Please join the waitlist above to be notified of new openings.</em></p>';
+                    }
+                }
+            }, 1000);
+
+
+     
+            // --- Testimonial Carousel Logic ---
+            const carousel = document.getElementById('testimonialCarousel');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            const cardWidth = 300 + 20; // Card width + right margin
+
+            if (carousel && prevBtn && nextBtn) { // Ensure elements exist
+                nextBtn.addEventListener('click', () => {
+                    carousel.scrollBy({
+                        left: cardWidth,
+                        behavior: 'smooth'
+                    });
+                });
+
+                prevBtn.addEventListener('click', () => {
+                    carousel.scrollBy({
+                        left: -cardWidth,
+                        behavior: 'smooth'
+                    });
+                });
+
+                // Optional: Hide/show buttons based on scroll position
+                carousel.addEventListener('scroll', () => {
+                    // Hide prev button if at the beginning
+                    if (carousel.scrollLeft === 0) {
+                        prevBtn.style.visibility = 'hidden';
+                    } else {
+                        prevBtn.style.visibility = 'visible';
+                    }
+
+                    // Hide next button if at the end
+                    if (carousel.scrollLeft + carousel.clientWidth >= carousel.scrollWidth) {
+                        nextBtn.style.visibility = 'hidden';
+                    } else {
+                        nextBtn.style.visibility = 'visible';
+                    }
+                });
+
+                // Initial check for button visibility on load
+                // (Timeout to ensure content has rendered and scrollWidth is accurate)
+                setTimeout(() => {
+                    if (carousel.scrollWidth <= carousel.clientWidth) {
+                        // If all cards fit without scrolling, hide both buttons
+                        prevBtn.style.display = 'none';
+                        nextBtn.style.display = 'none';
+                    } else {
+                        // Otherwise, ensure next is visible and prev is hidden (at start)
+                        prevBtn.style.visibility = 'hidden';
+                        nextBtn.style.visibility = 'visible';
+                    }
+                }, 100); // Small delay
+            }
+        });
+    </script>
+</body>
+</html>

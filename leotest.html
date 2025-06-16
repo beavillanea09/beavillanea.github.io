@@ -68,7 +68,8 @@
         }
 
         /* Elements that animate on load/scroll */
-        .hero h1, .hero h2, .intro-text, .scarcity-block, .hero .cta-button,
+        /* Removed scarcity-block and live-booking-counter from here, they will animate with their new parent section */
+        .hero h1, .hero h2, .intro-text, .hero .cta-button,
         section:not(.hero) { /* Exclude hero as it has its own load animation */
             opacity: 0; /* Hidden by default for animation */
             transform: translateY(20px); /* Start slightly below */
@@ -82,8 +83,7 @@
         .hero h1 { animation-delay: 0.1s; }
         .hero h2 { animation-delay: 0.3s; }
         .intro-text { animation-delay: 0.5s; }
-        .scarcity-block { animation-delay: 0.7s; }
-        .hero .cta-button { animation-delay: 0.9s; }
+        .hero .cta-button { animation-delay: 0.7s; }
 
 
         /* Header/Hero Section */
@@ -118,16 +118,17 @@
             color: var(--text-light); /* White text on dark background */
         }
 
-        /* Scarcity & Urgency Block */
+        /* Scarcity & Urgency Block (now can be used in different sections) */
         .scarcity-block {
             background-color: var(--primary-dark); /* Dark background matching image style */
             border-radius: 10px;
             padding: 20px;
-            margin: 30px auto;
+            margin: 20px auto 0; /* Adjusted margin for new placement */
             max-width: 500px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
             border: 2px solid var(--accent-green); /* Green border */
             text-align: center;
+            /* Removed opacity and transform here, controlled by parent .animated or direct placement */
         }
 
         .scarcity-message {
@@ -183,15 +184,13 @@
             border-radius: 25px;
             font-weight: bold;
             font-size: 1.1em;
-            margin: 20px auto 0;
+            margin: 20px auto 0; /* Adjusted margin for new placement */
             max-width: fit-content;
             display: flex;
             align-items: center;
             gap: 8px;
             box-shadow: 0 4px 10px rgba(139, 195, 74, 0.4);
-            animation: fadeIn 0.5s ease-out forwards;
-            animation-delay: 1.1s; /* Appear after CTA button */
-            opacity: 0; /* Hidden initially for animation */
+            /* Removed opacity and transform here, controlled by parent .animated or direct placement */
         }
         .live-booking-counter .icon {
             font-size: 1.3em;
@@ -660,6 +659,7 @@
             line-height: 1.8;
             text-align: left;
             width: 100%;
+            margin-bottom: 20px; /* Added margin for spacing before the counters */
         }
         .contact-info .icon {
             margin-right: 8px;
@@ -1090,7 +1090,7 @@
             <div class="scarcity-block">
                 <p class="scarcity-message">
                     <span class="icon">🔥</span>
-                    <strong>Urgent!</strong> Due to high demand, we only have <strong id="slots-left">3</strong> free call slots left for the month!
+                    <strong>Urgent!</strong> Due to high demand, we only have LIMITED free call slots left for the month!
                 </p>
                 <div class="countdown-timer">
                     <p>Offer Ends In:</p>
@@ -1277,6 +1277,29 @@
                             </a>
                             <p class="booking-note">Typically books within 24-48 hours</p>
                         </div>
+
+                        <!-- DUPLICATED: Scarcity Block and Live Booking Counter -->
+                        <div class="scarcity-block animated">
+                            <p class="scarcity-message">
+                                <span class="icon">🔥</span>
+                                <strong>Urgent!</strong> Due to high demand, we only have <strong id="slots-left-bottom">3</strong> free call slots left for the month!
+                            </p>
+                            <div class="countdown-timer">
+                                <p>Offer Ends In:</p>
+                                <div id="countdown-bottom" class="timer-display">
+                                    <span id="days-bottom">00</span>d :
+                                    <span id="hours-bottom">00</span>h :
+                                    <span id="minutes-bottom">00</span>m :
+                                    <span id="seconds-bottom">00</span>s
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="live-booking-counter animated" id="booking-count-display-bottom">
+                            <span class="icon">✅</span>
+                            <span id="booking-count-bottom">10</span> people have booked a call in the last 48 hours!
+                        </div>
+
                     </div>
 
                     <div class="column right-column">
@@ -1373,7 +1396,7 @@
             // IMPORTANT: Set your actual end date here! Current month is June 2025.
             const countdownDate = new Date("June 30, 2025 23:59:59").getTime(); // Example: End of June 2025
 
-            const x = setInterval(function() {
+            const timerInterval = setInterval(function() {
                 const now = new Date().getTime();
                 const distance = countdownDate - now;
 
@@ -1383,61 +1406,68 @@
                 const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
                 const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-                // Display the result with leading zeros
-                document.getElementById("days").innerHTML = String(days).padStart(2, '0');
-                document.getElementById("hours").innerHTML = String(hours).padStart(2, '0');
-                document.getElementById("minutes").innerHTML = String(minutes).padStart(2, '0');
-                document.getElementById("seconds").innerHTML = String(seconds).padStart(2, '0');
+                // Display the result with leading zeros for ALL timers
+                document.querySelectorAll("[id^='days']").forEach(el => el.innerHTML = String(days).padStart(2, '0'));
+                document.querySelectorAll("[id^='hours']").forEach(el => el.innerHTML = String(hours).padStart(2, '0'));
+                document.querySelectorAll("[id^='minutes']").forEach(el => el.innerHTML = String(minutes).padStart(2, '0'));
+                document.querySelectorAll("[id^='seconds']").forEach(el => el.innerHTML = String(seconds).padStart(2, '0'));
 
-                // If the countdown is over, write some text and adjust visibility
+                // If the countdown is over, handle expiration for all instances
                 if (distance < 0) {
-                    clearInterval(x);
-                    document.getElementById("countdown").innerHTML = "EXPIRED";
-                    document.querySelector('.scarcity-block').innerHTML = `
-                        <p class="scarcity-message expired-message">
-                            <span class="icon">❌</span> All slots for this month are now booked!
-                        </p>
-                        <p class="scarcity-message expired-message">
-                            Join our waitlist for next month's openings.
-                            <a href="#callBookingFormSection" class="cta-button small-cta">Join Waitlist</a>
-                        </p>
-                    `;
+                    clearInterval(timerInterval);
+                    document.querySelectorAll("[id^='countdown']").forEach(el => el.innerHTML = "EXPIRED");
+                    
+                    document.querySelectorAll('.scarcity-block').forEach(scarcityBlock => {
+                        scarcityBlock.innerHTML = `
+                            <p class="scarcity-message expired-message">
+                                <span class="icon">❌</span> All slots for this month are now booked!
+                            </p>
+                            <p class="scarcity-message expired-message">
+                                Join our waitlist for next month's openings.
+                                <a href="#callBookingFormSection" class="cta-button small-cta">Join Waitlist</a>
+                            </p>
+                        `;
+                    });
+
+                    // Hide relevant CTAs and booking elements on expiration
                     if (document.getElementById('callBookingForm')) {
                         document.getElementById('callBookingForm').style.display = 'none';
                     }
-                    if (document.querySelector('.hero .primary-cta')) {
-                        document.querySelector('.hero .primary-cta').style.display = 'none';
-                    }
+                    // The hero CTA is still shown initially, but now it needs to be hidden on expiry.
+                    // This was previously handled but now needs to be re-evaluated due to duplication.
+                    document.querySelector('.hero .primary-cta').style.display = 'none';
+
                     if (document.querySelector('.booking-form-original .sub-headline')) {
                         document.querySelector('.booking-form-original .sub-headline').textContent = "We are currently fully booked. Join our waitlist for future openings!";
                     }
                     if (document.querySelector('.booking-widget-placeholder')) {
                         document.querySelector('.booking-widget-placeholder').innerHTML = '<p><em>Please join the waitlist above to be notified of new openings.</em></p>';
                     }
-                    // Hide the booking counter when slots are expired
-                    const bookingCounter = document.getElementById('booking-count-display');
-                    if (bookingCounter) {
-                        bookingCounter.style.display = 'none';
-                    }
+                    // Hide all booking counters when slots are expired
+                    document.querySelectorAll('.live-booking-counter').forEach(counter => {
+                        counter.style.display = 'none';
+                    });
                 }
             }, 1000);
 
             // --- Live Booking Counter Logic ---
             let currentBookings = 10; // Starting number of bookings
-            const bookingCountElement = document.getElementById('booking-count');
-            const bookingCounterDisplay = document.getElementById('booking-count-display'); // Get the display div
-
+            
             function updateBookingCount() {
                 // Simulate new bookings
                 const randomIncrement = Math.floor(Math.random() * 3); // Adds 0, 1, or 2 new bookings
                 currentBookings += randomIncrement;
-                bookingCountElement.textContent = currentBookings;
+                
+                // Update ALL booking count displays
+                document.querySelectorAll("[id^='booking-count']").forEach(el => el.textContent = currentBookings);
 
-                // Make the counter "pulse" or update visually (optional, for more subtle effect)
-                bookingCounterDisplay.classList.add('pulse-effect');
-                setTimeout(() => {
-                    bookingCounterDisplay.classList.remove('pulse-effect');
-                }, 500);
+                // Make ALL counters "pulse" or update visually (optional, for more subtle effect)
+                document.querySelectorAll(".live-booking-counter").forEach(counterDisplay => {
+                    counterDisplay.classList.add('pulse-effect');
+                    setTimeout(() => {
+                        counterDisplay.classList.remove('pulse-effect');
+                    }, 500);
+                });
             }
 
             // Update the booking count every 30-60 seconds

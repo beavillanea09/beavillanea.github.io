@@ -1,0 +1,1676 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bea Villanea | High-Converting Funnel Design Service</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-pink: #E91E63;
+            --primary-pink-dark: #C2185B;
+            --primary-pink-light: #F8BBD9;
+            --primary-pink-ultra-light: #FCE4EC;
+            --accent-gradient: linear-gradient(135deg, #E91E63, #FF6B9D);
+            --accent-gradient-hover: linear-gradient(135deg, #C2185B, #E91E63);
+            --neutral-dark: #413f3f;
+            --neutral-medium: #7e7b7b;
+            --neutral-light: #c4c2c2;
+            --neutral-ultra-light: #F7FAFC;
+            --success-color: #4CAF50;
+            --shadow-soft: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            --shadow-strong: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--neutral-ultra-light);
+            color: var(--neutral-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            color: var(--neutral-dark);
+            line-height: 1.2;
+        }
+        h1 { font-size: clamp(2.8rem, 5vw, 4.5rem); font-weight: 900; line-height: 1.1; }
+        h2 { font-size: clamp(2.2rem, 4vw, 3.2rem); font-weight: 800; }
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1.25rem 3rem;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            background: var(--accent-gradient);
+            color: white;
+            text-decoration: none;
+            box-shadow: 0 8px 32px rgba(233, 30, 99, 0.3);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: none;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            transform: perspective(1px) translateZ(0);
+        }
+        .btn-primary:hover {
+            background: var(--accent-gradient-hover);
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(233, 30, 99, 0.4);
+        }
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.6s;
+        }
+        .btn-primary:hover::before {
+            left: 100%;
+        }
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem 2rem;
+            border-radius: 30px;
+            background-color: white;
+            color: var(--neutral-medium);
+            border: 2px solid #E2E8F0;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        .btn-secondary:hover {
+            border-color: var(--primary-pink);
+            color: var(--primary-pink);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(233, 30, 99, 0.2);
+        }
+        .btn-urgent {
+            position: relative;
+            animation: pulse-urgent 2s infinite;
+            background: linear-gradient(135deg, #FF6B9D, #E91E63, #C2185B);
+            background-size: 200% 200%;
+            animation: gradientShift 3s ease infinite, pulse-urgent 2s infinite;
+        }
+        @keyframes pulse-urgent {
+            0%, 100% {
+                box-shadow: 0 8px 32px rgba(233, 30, 99, 0.3);
+                opacity: 1;
+                transform: scale(1);
+            }
+            50% {
+                box-shadow: 0 12px 40px rgba(233, 30, 99, 0.5);
+                opacity: 0.8;
+                transform: scale(1.05);
+            }
+        }
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        .card-enhanced {
+            background: white;
+            border-radius: 24px;
+            padding: 2rem;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            border: 1px solid #F1F5F9;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+        .card-enhanced::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: var(--accent-gradient);
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+        .card-enhanced:hover {
+            transform: translateY(-12px) scale(1.02);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.2);
+        }
+        .card-enhanced:hover::before {
+            transform: scaleX(1);
+        }
+        .hero-enhanced {
+            background: linear-gradient(135deg, var(--primary-pink-ultra-light) 0%, white 50%, #F0F9FF 100%);
+            position: relative;
+            overflow: hidden;
+            padding: 4rem 0;
+        }
+        .hero-enhanced::before {
+            content: '';
+            position: absolute;
+            top: -30%;
+            right: -15%;
+            width: 60%;
+            height: 180%;
+            background: radial-gradient(circle, var(--primary-pink-light), transparent 70%);
+            border-radius: 50%;
+            opacity: 0.15;
+            animation: heroFloat 8s ease-in-out infinite;
+        }
+        .hero-enhanced::after {
+            content: '';
+            position: absolute;
+            bottom: -40%;
+            left: -20%;
+            width: 80%;
+            height: 120%;
+            background: radial-gradient(circle, #E3F2FD, transparent 60%);
+            border-radius: 50%;
+            opacity: 0.1;
+            animation: heroFloat 10s ease-in-out infinite reverse;
+        }
+        @keyframes heroFloat {
+            0%, 100% { transform: translateY(0px) rotate(0deg) scale(1); }
+            33% { transform: translateY(-30px) rotate(2deg) scale(1.05); }
+            66% { transform: translateY(20px) rotate(-1deg) scale(0.98); }
+        }
+        .value-highlight {
+            background: linear-gradient(135deg, var(--primary-pink), var(--primary-pink-dark));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 900;
+            display: inline-block;
+            position: relative;
+        }
+        .value-highlight::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--accent-gradient);
+            border-radius: 2px;
+            opacity: 0.3;
+        }
+        .social-proof-banner {
+            background: linear-gradient(135deg, #C2185B, #cf6891);
+            color: white;
+            padding: 0.75rem 0;
+            text-align: center;
+            font-weight: 600;
+            box-shadow: 0 4px 20px rgba(76, 175, 80, 0.3);
+        }
+        .testimonial-card {
+            background: white;
+            border-radius: 20px;
+            padding: 1.5rem;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            border-left: 4px solid var(--primary-pink);
+            flex-shrink: 0;
+            min-width: 80%;
+            width: 80%;
+        }
+        @media (min-width: 768px) {
+            .testimonial-card {
+                min-width: calc((100% / 2) - 0.75rem);
+                width: calc((100% / 2) - 0.75rem);
+            }
+        }
+        @media (min-width: 1024px) {
+            .testimonial-card {
+                min-width: calc((100% / 3) - 1rem);
+                width: calc((100% / 3) - 1rem);
+            }
+        }
+        .testimonial-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: -10px;
+            left: 15px;
+            font-size: 3rem;
+            color: var(--primary-pink);
+            opacity: 0.3;
+            font-family: 'Playfair Display', serif;
+        }
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin: 2rem 0;
+            align-items: stretch;
+            justify-content: center;
+        }
+        @media (min-width: 768px) {
+            .results-grid {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 1.5rem;
+            }
+        }
+        .result-stat {
+            text-align: center;
+            padding: 1rem;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 130px;
+            min-width: 0;
+            width: 100%;
+        }
+        .result-stat:hover {
+            transform: translateY(-8px);
+        }
+        .result-number {
+            font-size: 2.5rem;
+            font-weight: 900;
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: block;
+            margin-bottom: 0.25rem;
+        }
+        .result-label {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--neutral-medium);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .animate-fade-up {
+            opacity: 1;
+            transform: translateY(0);
+            transition: all 1s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .animate-fade-up:not(.in-view) {
+            opacity: 0;
+            transform: translateY(40px);
+        }
+        .animate-fade-up.in-view {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .animate-scale-in {
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .animate-scale-in:not(.in-view) {
+            opacity: 0;
+            transform: scale(0.8);
+        }
+        .animate-scale-in.in-view {
+            opacity: 1;
+            transform: scale(1);
+        }
+        .section-enhanced {
+            padding: 4rem 0;
+        }
+        .section-title {
+            font-size: clamp(2.2rem, 3.5vw, 3rem);
+            font-weight: 900;
+            text-align: center;
+            margin-bottom: 1.25rem;
+            background: linear-gradient(135deg, var(--neutral-dark), var(--primary-pink));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: var(--neutral-medium);
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto 3rem;
+            line-height: 1.7;
+            font-weight: 500;
+        }
+        .scrolling-banner {
+            overflow: hidden;
+            background: var(--primary-pink);
+            color: white;
+            padding: 1rem 0;
+            position: relative;
+            background: linear-gradient(135deg, var(--primary-pink), #FF6B9D);
+        }
+        .scrolling-banner::before,
+        .scrolling-banner::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            width: 100px;
+            height: 100%;
+            z-index: 2;
+        }
+        .scrolling-banner::before {
+            left: 0;
+            background: linear-gradient(to right, var(--primary-pink), transparent);
+        }
+        .scrolling-banner::after {
+            right: 0;
+            background: linear-gradient(to left, var(--primary-pink), transparent);
+        }
+        .banner-content {
+            display: flex;
+            animation: scroll-left 10s linear infinite;
+            font-weight: 800;
+            font-size: 1.2rem;
+            letter-spacing: 0.1em;
+        }
+        .banner-text {
+            margin-right: 3rem;
+            white-space: nowrap;
+        }
+        @keyframes scroll-left {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .urgency-indicator {
+            background: linear-gradient(135deg, #FF4444, #FF6B6B);
+            color: white;
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            animation: urgency-pulse 2s infinite;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        @keyframes urgency-pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.8; transform: scale(1.05); }
+        }
+        @media (max-width: 768px) {
+            .section-enhanced {
+                padding: 3rem 0;
+            }
+            .hero-enhanced {
+                padding: 3rem 0;
+            }
+            .btn-primary {
+                padding: 0.8rem 2rem;
+                font-size: 0.9rem;
+            }
+            .card-enhanced {
+                padding: 1.5rem;
+            }
+        }
+        @media (max-width: 640px) {
+            .mobile-tagline {
+                font-size: 0.625rem;
+                display: block;
+                line-height: 1.2;
+                margin-left: 0 !important;
+            }
+            header .flex-shrink-0 a .text-2xl {
+                font-size: 1.5rem;
+            }
+        }
+        .accent-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--primary-pink);
+            border-radius: 50%;
+            display: inline-block;
+            margin: 0 0.75rem;
+            animation: dot-pulse 2s infinite;
+        }
+        @keyframes dot-pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.6; transform: scale(1.2); }
+        }
+        .divider-enhanced {
+            height: 1px;
+            background: linear-gradient(to right, transparent, var(--primary-pink), transparent);
+            margin: 3rem 0;
+        }
+        .icon-enhanced {
+            background: linear-gradient(135deg, var(--primary-pink-light), var(--primary-pink-ultra-light));
+            border-radius: 20px;
+            padding: 0.75rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 0.75rem;
+            transition: all 0.3s ease;
+        }
+        .icon-enhanced:hover {
+            transform: scale(1.1) rotate(5deg);
+        }
+        .icon-enhanced i {
+            color: var(--primary-pink);
+            width: 1.5rem;
+            height: 1.5rem;
+        }
+        .floating-cta {
+            position: fixed;
+            bottom: 1.5rem;
+            right: 1.5rem;
+            z-index: 1000;
+            padding: 1rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 700;
+            background: var(--accent-gradient);
+            color: white;
+            text-decoration: none;
+            box-shadow: 0 10px 30px rgba(233, 30, 99, 0.4);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            animation: floating-bounce 3s ease-in-out infinite;
+        }
+        .floating-cta:hover {
+            transform: translateY(-5px) scale(1.05);
+            background: var(--accent-gradient-hover);
+            box-shadow: 0 15px 45px rgba(233, 30, 99, 0.5);
+        }
+        @keyframes floating-bounce {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-8px); }
+        }
+        .contact-form {
+            background: white;
+            border-radius: 24px;
+            padding: 2.5rem;
+            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.1);
+            border: 1px solid #F1F5F9;
+        }
+        .contact-form .form-group {
+            margin-bottom: 1rem;
+        }
+        .contact-form label {
+            display: block;
+            color: var(--neutral-dark);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+        .contact-form input[type="text"],
+        .contact-form input[type="email"],
+        .contact-form textarea {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            border: 2px solid #E2E8F0;
+            border-radius: 10px;
+            font-size: 0.9rem;
+            color: var(--neutral-dark);
+            background-color: white;
+            transition: all 0.3s ease;
+        }
+        .contact-form input[type="text"]:focus,
+        .contact-form input[type="email"]:focus,
+        .contact-form textarea:focus {
+            outline: none;
+            border-color: var(--primary-pink);
+            box-shadow: 0 0 0 3px rgba(233, 30, 99, 0.2);
+            transform: translateY(-1px);
+        }
+        .contact-form textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+        .success-message {
+            background: linear-gradient(135deg, #4CAF50, #45A049);
+            color: white;
+            padding: 0.8rem;
+            border-radius: 10px;
+            text-align: center;
+            font-weight: 600;
+            display: none;
+        }
+        #testimonial-carousel-wrapper {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            padding: 0.5rem 0;
+        }
+        #testimonial-carousel-track {
+            display: flex;
+            gap: 0.75rem;
+            animation: scroll-x linear infinite var(--animation-duration);
+            will-change: transform;
+        }
+        #testimonial-carousel-track:hover {
+            animation-play-state: paused;
+        }
+        @keyframes scroll-x {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="bg-white/95 backdrop-blur-lg sticky top-0 z-50 border-b border-gray-100">
+        <div class="social-proof-banner text-sm">
+            <div class="flex items-center justify-center gap-2">
+                <i data-lucide="check-circle" class="h-4 w-4"></i>
+                <span>✨ Trusted by Business Owners | 98% Client Satisfaction Rate </span>
+                <i data-lucide="star" class="h-4 w-4 fill-current"></i>
+            </div>
+        </div>
+
+        <nav class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <div class="flex-shrink-0">
+                    <a href="#" class="text-2xl font-bold flex flex-col sm:flex-row items-start sm:items-baseline">
+                        <span style="color: var(--primary-pink);" class="text-2xl sm:text-2xl md:text-2xl lg:text-2xl">Bea Villanea</span>
+                        <span class="text-gray-700 text-xs sm:text-sm md:text-base lg:text-lg leading-tight sm:leading-normal">Your High-Converting Funnel Design Partner</span>
+                    </a>
+                </div>
+
+                <div class="hidden md:flex">
+                    <div class="ml-10 flex items-baseline space-x-6">
+                        <a href="#services" class="text-gray-600 hover:text-gray-900 px-3 py-2 text-sm font-medium transition-colors">How I Help</a>
+                        <a href="#about" class="text-gray-600 hover:text-gray-900 px-3 py-2 text-sm font-medium transition-colors">About Bea</a>
+                        <a href="#results" class="text-gray-600 hover:text-gray-900 px-3 py-2 text-sm font-medium transition-colors">Results</a>
+                        <a href="#testimonials" class="text-gray-600 hover:text-gray-900 px-3 py-2 text-sm font-medium transition-colors">Success Stories</a>
+                        <a href="#contact" class="btn-primary text-sm px-6 py-2">Let's Talk</a>
+                    </div>
+                </div>
+
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-gray-600 hover:text-gray-900 p-2 rounded-md focus:outline-none cursor-pointer">
+                        <i data-lucide="menu" class="h-6 w-6"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div id="mobile-menu" class="hidden md:hidden pb-4">
+                <div class="space-y-2">
+                    <a href="#services" class="block text-gray-600 hover:text-gray-900 px-3 py-2 text-base font-medium">How I Help</a>
+                    <a href="#about" class="block text-gray-600 hover:text-gray-900 px-3 py-2 text-base font-medium">About Bea</a>
+                    <a href="#results" class="block text-gray-600 hover:text-gray-900 px-3 py-2 text-base font-medium">Results</a>
+                    <a href="#testimonials" class="block text-gray-600 hover:text-gray-900 px-3 py-2 text-base font-medium">Success Stories</a>
+                    <a href="#contact" class="btn-primary text-sm px-6 py-2">Let's Talk</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- HERO SECTION -->
+        <section class="hero-enhanced">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid lg:grid-cols-2 gap-12 items-center">
+                    <!-- Text Content -->
+                    <div class="animate-fade-up relative z-10">
+                        <div class="inline-flex items-center bg-white/70 backdrop-blur-sm rounded-full px-4 py-2 mb-6 border border-pink-200">
+                            <span class="w-2 h-2 bg-green-500 rounded-full mr-2 animate-pulse"></span>
+                            <span class="text-sm font-medium text-gray-700">🚀 Ready to Convert More Leads!</span>
+                        </div>
+                        <h1 class="mb-6 font-black text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-center lg:text-left">
+                            Turn Visitors into <span style="color: var(--primary-pink);">Paying Clients.</span>
+                        </h1>
+                        <p class="text-xl text-gray-600 mb-8 leading-relaxed font-medium text-center lg:text-left">
+                            As your dedicated Funnel Design expert, I craft strategic sales funnels that capture leads, nurture relationships, and convert prospects into loyal customers. Stop guessing, start converting, and <strong class="text-pink-600">boost your conversion rates by 40-60%</strong>.
+                        </p>
+                        <div class="flex flex-col sm:flex-row gap-4 mb-8 justify-center lg:justify-start">
+                            <a href="https://calendly.com/villaneabea1/30min" target="_blank" class="btn-primary btn-urgent">
+                                <i data-lucide="funnel" class="mr-2 h-5 w-5"></i>
+                                Design My Funnel - It's FREE!
+                            </a>
+                            <a href="#results" class="btn-secondary relative z-20">
+                                <i data-lucide="trending-up" class="mr-2 h-4 w-4"></i>
+                                See My Impact
+                            </a>
+                        </div>
+                        <!-- Credibility indicators -->
+                        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 text-sm">
+                            <div class="flex items-center justify-center lg:justify-start">
+                                <i data-lucide="check-circle" class="h-4 w-4 mr-2 text-green-500"></i>
+                                <span class="text-gray-600">13+ Years Digital Marketing</span>
+                            </div>
+                            <div class="flex items-center justify-center lg:justify-start">
+                                <i data-lucide="check-circle" class="h-4 w-4 mr-2 text-green-500"></i>
+                                <span class="text-gray-600">Meta & Google Certified</span>
+                            </div>
+                            <div class="flex items-center justify-center lg:justify-start">
+                                <i data-lucide="check-circle" class="h-4 w-4 mr-2 text-green-500"></i>
+                                <span class="text-gray-600">Conversion Rate Expert</span>
+                            </div>
+                        </div>
+                        <!-- Logos for Google, Meta, and Microsoft -->
+                        <div class="flex flex-wrap justify-center sm:justify-start gap-4 sm:gap-6 mt-6">
+                            <img src="https://ik.imagekit.io/ewoioxq0g/google-icon-logo-symbol-free-png.jpeg?updatedAt=1750363837747" alt="Google Logo" class="h-8 w-8 rounded-full shadow-md">
+                            <img src="https://ik.imagekit.io/ewoioxq0g/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWges/web_content/lr/v1091-03_1.png.jpeg?updatedAt=1750363817942" alt="Meta Logo" class="h-8 w-8 rounded-full shadow-md">
+                            <img src="https://ik.imagekit.io/ewoioxq0g/microsoft-icon-logo-symbol-free-png.jpeg?updatedAt=1750363800770" alt="Microsoft Logo" class="h-8 w-8 rounded-full shadow-md">
+                        </div>
+                    </div>
+
+                    <!-- Image Section -->
+                    <div class="animate-scale-in relative">
+                        <div class="absolute inset-0 bg-gradient-to-br from-pink-200 to-purple-200 rounded-3xl transform rotate-3 opacity-60"></div>
+                        <div class="absolute inset-0 bg-gradient-to-tl from-blue-100 to-pink-100 rounded-3xl transform -rotate-2 opacity-40"></div>
+                        <img
+                            src="https://ik.imagekit.io/ewoioxq0g/WhatsApp%20Image%202025-06-14%20at%2003.36.20_93175f5f.jpg?updatedAt=1749886904306"
+                            alt="Bea Villanea - Funnel Design Expert"
+                            class="relative rounded-3xl shadow-2xl w-full h-auto object-cover"
+                            onerror="this.onerror=null; this.src='https://placehold.co/600x400/E91E63/ffffff?text=Bea+Villanea';"
+                        >
+                        <!-- Floating testimonial preview -->
+                        <div class="absolute -bottom-6 -left-6 bg-white rounded-2xl p-4 shadow-xl border border-gray-100 max-w-xs">
+                            <div class="flex items-center space-x-2 mb-2">
+                                <div class="flex">
+                                    <i data-lucide="star" class="h-4 w-4 text-yellow-400 fill-current"></i>
+                                    <i data-lucide="star" class="h-4 w-4 text-yellow-400 fill-current"></i>
+                                    <i data-lucide="star" class="h-4 w-4 text-yellow-400 fill-current"></i>
+                                    <i data-lucide="star" class="h-4 w-4 text-yellow-400 fill-current"></i>
+                                    <i data-lucide="star" class="h-4 w-4 text-yellow-400 fill-current"></i>
+                                </div>
+                            </div>
+                            <p class="text-sm text-gray-600 italic">"Bea's funnel strategy increased my leads by 3x and sales by 50%! Truly amazing results."</p>
+                            <p class="text-xs text-gray-500 mt-1">- Jessica R., Online Course Creator</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- RESULTS SECTION -->
+        <section id="results" class="section-enhanced bg-gradient-to-br from-gray-50 to-white">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="section-title">Real Wins with High-Converting Funnels</h2>
+                    <p class="section-subtitle">
+                        Businesses partnering with me experience rapid, measurable growth in leads and sales. Often, all within 30 days.
+                    </p>
+                </div>
+
+                <div class="grid md:grid-cols-4 gap-4 justify-items-center">
+                    <div class="result-stat animate-fade-up">
+                        <span class="result-number" data-final-value="2X+">0</span>
+                        <span class="result-label">Lead Increase</span>
+                    </div>
+                    <div class="result-stat animate-fade-up">
+                        <span class="result-number" data-final-value="45%">0</span>
+                        <span class="result-label">Conversion Rate Boost</span>
+                    </div>
+                    <div class="result-stat animate-fade-up">
+                        <span class="result-number" data-final-value="3X+">0</span>
+                        <span class="result-label">Sales Growth</span>
+                    </div>
+                    <div class="result-stat animate-fade-up">
+                        <span class="result-number" data-final-value="30">0</span>
+                        <span class="result-label">Day Funnel Launch</span>
+                    </div>
+                </div>
+
+                <div class="text-center mt-12">
+                    <a href="#testimonials" class="btn-secondary">
+                        <i data-lucide="arrow-right" class="mr-2 h-4 w-4"></i>
+                        Hear Their Conversion Stories
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- SCROLLING BANNER -->
+        <div class="scrolling-banner">
+            <div class="banner-content">
+                <span class="banner-text">⚡ TURN VISITORS INTO CUSTOMERS</span>
+                <span class="banner-text">🚀 AUTOMATE YOUR SALES PROCESS</span>
+                <span class="banner-text">✨ BOOST YOUR ROI & PROFIT</span>
+                <span class="banner-text">📈 GET MORE QUALIFIED LEADS</span>
+                <span class="banner-text">💎 EXPERT FUNNEL STRATEGY</span>
+                <span class="banner-text">🎯 YOUR HIGH-CONVERTING FUNNEL READY IN 30 DAYS</span>
+                <span class="banner-text">⚡ TURN VISITORS INTO CUSTOMERS</span>
+                <span class="banner-text">🚀 AUTOMATE YOUR SALES PROCESS</span>
+                <span class="banner-text">✨ BOOST YOUR ROI & PROFIT</span>
+                <span class="banner-text">📈 GET MORE QUALIFIED LEADS</span>
+            </div>
+        </div>
+
+        <!-- PROBLEM SECTION -->
+        <section id="problem" class="section-enhanced bg-gray-50">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="section-title">Facing These Funnel Frustrations?</h2>
+                    <p class="section-subtitle">
+                        Many businesses struggle to convert website visitors into paying customers. If this sounds familiar, I can help.
+                    </p>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-4">
+                    <div class="card-enhanced animate-fade-up" style="padding: 1.25rem;">
+                        <div class="icon-enhanced" style="padding: 0.4rem; margin-bottom: 0.4rem;">
+                            <i data-lucide="user-x" class="h-5 w-5"></i>
+                        </div>
+                        <h3 class="text-base font-bold mb-2 text-red-600">Leads Slipping Away</h3>
+                        <p class="text-xs text-gray-600 mb-2">
+                            Your website gets traffic, but visitors leave without taking action. You're losing potential customers daily.
+                        </p>
+                        <div class="text-xs text-red-500 font-semibold">
+                            💰 Cost: Wasted ad spend & missed revenue
+                        </div>
+                    </div>
+                    <div class="card-enhanced animate-fade-up" style="padding: 1.25rem;">
+                        <div class="icon-enhanced" style="padding: 0.4rem; margin-bottom: 0.4rem;">
+                            <i data-lucide="dollar-sign" class="h-5 w-5"></i>
+                        </div>
+                        <h3 class="text-base font-bold mb-2 text-red-600">Low Conversion Rates</h3>
+                        <p class="text-xs text-gray-600 mb-2">
+                            Your marketing efforts aren't translating into enough sales. You need a system that consistently converts.
+                        </p>
+                        <div class="text-xs text-red-500 font-semibold">
+                            📉 Result: Stagnant growth & unpredictable income
+                        </div>
+                    </div>
+                    <div class="card-enhanced animate-fade-up" style="padding: 1.25rem;">
+                        <div class="icon-enhanced" style="padding: 0.4rem; margin-bottom: 0.4rem;">
+                            <i data-lucide="circle-off" class="h-5 w-5"></i>
+                        </div>
+                        <h3 class="text-base font-bold mb-2 text-red-600">Ineffective Sales Process</h3>
+                        <p class="text-xs text-gray-600 mb-2">
+                            You're spending too much time on manual follow-ups and inconsistent sales pitches, leading to burnout.
+                        </p>
+                        <div class="text-xs text-red-500 font-semibold">
+                            🔥 Warning: Exhausted team & frustrated prospects
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center mt-12">
+                    <a href="https://calendly.com/villaneabea1/30min" target="_blank" class="btn-primary btn-urgent">
+                        <i data-lucide="arrow-right" class="mr-2 h-5 w-5"></i>
+                        Fix My Funnel - Book Your Free Call
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- SERVICES SECTION - FUNNEL DESIGN FOCUS -->
+        <section id="services" class="section-enhanced">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="section-title">My High-Converting Funnel Design Services</h2>
+                    <p class="section-subtitle">
+                        I design and implement end-to-end sales funnels tailored to your business, ensuring every step drives conversions and maximizes your ROI.
+                    </p>
+                </div>
+
+                <div class="bg-white rounded-3xl p-6 shadow-xl border border-pink-100 mb-12 animate-fade-up">
+                    <h3 class="text-2xl font-bold mb-3 text-center text-gray-800">Complete Funnel Solutions</h3>
+                    <p class="text-base text-gray-600 mb-6 text-center font-medium">From Strategy to Conversion, I've Got You Covered</p>
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <div class="card-enhanced animate-fade-up" style="padding: 1.25rem;">
+                            <div class="icon-enhanced"><i data-lucide="layout-grid" class="h-5 w-5"></i></div>
+                            <h3 class="text-base font-bold mb-2">Funnel Strategy & Mapping</h3>
+                            <p class="text-xs text-gray-600 mb-3">Develop a custom funnel strategy, identifying ideal customer journeys and conversion points.</p>
+                            <div class="text-xs text-pink-600 font-semibold">✨ Clear path to conversions.</div>
+                        </div>
+                        <div class="card-enhanced animate-fade-up" style="padding: 1.25rem;">
+                            <div class="icon-enhanced"><i data-lucide="square-stack" class="h-5 w-5"></i></div>
+                            <h3 class="text-base font-bold mb-2">Landing Page & Opt-in Design</h3>
+                            <p class="text-xs text-gray-600 mb-3">Create compelling, high-converting landing pages and opt-in forms that capture leads effectively.</p>
+                            <div class="text-xs text-pink-600 font-semibold">📄 Capture more qualified leads.</div>
+                        </div>
+                        <div class="card-enhanced animate-fade-up" style="padding: 1.25rem;">
+                            <div class="icon-enhanced"><i data-lucide="type" class="h-5 w-5"></i></div>
+                            <h3 class="text-base font-bold mb-2">Conversion-Focused Copywriting</h3>
+                            <p class="text-xs text-gray-600 mb-3">Craft persuasive and engaging copy for every stage of your funnel, from ads to sales pages.</p>
+                            <div class="text-xs text-pink-600 font-semibold">✍️ Compel action, drive sales.</div>
+                        </div>
+                        <div class="card-enhanced animate-fade-up" style="padding: 1.25rem;">
+                            <div class="icon-enhanced"><i data-lucide="mail-check" class="h-5 w-5"></i></div>
+                            <h3 class="text-base font-bold mb-2">Email Nurture Sequence Setup</h3>
+                            <p class="text-xs text-gray-600 mb-3">Automate email sequences that build trust, educate prospects, and guide them towards purchase.</p>
+                            <div class="text-xs text-pink-600 font-semibold">📧 Build rapport, increase sales.</div>
+                        </div>
+                        <div class="card-enhanced animate-fade-up" style="padding: 1.25rem;">
+                            <div class="icon-enhanced"><i data-lucide="zap" class="h-5 w-5"></i></div>
+                            <h3 class="text-base font-bold mb-2">Automation & Integration</h3>
+                            <p class="text-xs text-gray-600 mb-3">Seamlessly integrate your funnels with CRM, email marketing, and payment systems.</p>
+                            <div class="text-xs text-pink-600 font-semibold">⚙️ Automate for efficiency.</div>
+                        </div>
+                        <div class="card-enhanced animate-fade-up" style="padding: 1.25rem;">
+                            <div class="icon-enhanced"><i data-lucide="bar-chart-2" class="h-5 w-5"></i></div>
+                            <h3 class="text-base font-bold mb-2">A/B Testing & Optimization</h3>
+                            <p class="text-xs text-gray-600 mb-3">Continuously test and optimize funnel elements to ensure maximum performance and ROI.</p>
+                            <div class="text-xs text-pink-600 font-semibold">📈 Always improving conversion.</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center mt-12">
+                    <a href="https://calendly.com/villaneabea1/30min" target="_blank" class="btn-primary">
+                        <i data-lucide="funnel" class="mr-2 h-5 w-5"></i>
+                        Let's Talk About Your Funnel Needs!
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- MOCKUP SECTION -->
+        <section id="mockups" class="section-enhanced bg-gray-50">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="section-title">Our Funnel Design Process in Action</h2>
+                    <p class="section-subtitle">
+                        See how a well-designed sales funnel guides your prospects from awareness to purchase.
+                    </p>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div class="animate-fade-up">
+                        <h3 class="text-2xl font-bold mb-4 text-center lg:text-left">From Idea to Income: Your Funnel Journey</h3>
+                        <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+                            Every high-converting funnel starts with a clear strategy. We map out each step your customer takes, ensuring a seamless and persuasive journey. From the initial ad click to the final purchase, every element is designed to move your prospect closer to becoming a client.
+                        </p>
+                        <ul class="list-disc list-inside text-gray-700 space-y-2 mb-6">
+                            <li><strong>Awareness:</strong> Attract ideal prospects with targeted ads and compelling content.</li>
+                            <li><strong>Engagement:</strong> Capture interest with valuable lead magnets and engaging content.</li>
+                            <li><strong>Conversion:</strong> Guide prospects towards a sales conversation or direct purchase.</li>
+                            <li><strong>Retention:</strong> Build loyalty and encourage repeat business through automated follow-ups.</li>
+                        </ul>
+                        <a href="https://calendly.com/villaneabea1/30min" target="_blank" class="btn-secondary">
+                            <i data-lucide="layout-template" class="mr-2 h-4 w-4"></i>
+                            Explore Funnel Blueprints
+                        </a>
+                    </div>
+                    <div class="animate-scale-in">
+                        <img src="https://placehold.co/600x400/E91E63/ffffff?text=Funnel+Process+Mockup" alt="Funnel Design Process" class="rounded-3xl shadow-2xl w-full h-auto object-cover" onerror="this.onerror=null; this.src='https://placehold.co/600x400/E91E63/ffffff?text=Funnel+Process+Mockup';">
+                        <p class="text-center text-sm text-gray-500 mt-4">Example: Visual representation of a typical sales funnel flow.</p>
+                    </div>
+                </div>
+
+                <div class="divider-enhanced my-16"></div>
+
+                <div class="grid md:grid-cols-2 gap-8 items-center flex-row-reverse">
+                    <div class="animate-fade-up">
+                        <h3 class="text-2xl font-bold mb-4 text-center lg:text-left">Before & After: The Power of Optimized Funnels</h3>
+                        <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+                            Witness the dramatic impact of professional funnel design. Many businesses struggle with generic landing pages and disjointed customer journeys. With a strategic funnel, we transform these bottlenecks into high-performing conversion machines, showing significant jumps in lead quality and sales.
+                        </p>
+                        <ul class="list-disc list-inside text-gray-700 space-y-2 mb-6">
+                            <li><strong>Before:</strong> Low conversion rates, high bounce rates, lost opportunities.</li>
+                            <li><strong>After:</strong> Engaged prospects, automated nurturing, consistent sales.</li>
+                        </ul>
+                        <a href="https://calendly.com/villaneabea1/30min" target="_blank" class="btn-secondary">
+                            <i data-lucide="sparkles" class="mr-2 h-4 w-4"></i>
+                            See More Transformations
+                        </a>
+                    </div>
+                    <div class="animate-scale-in">
+                        <img src="https://placehold.co/600x400/C2185B/ffffff?text=Before+After+Funnel+Mockup" alt="Before and After Funnel Comparison" class="rounded-3xl shadow-2xl w-full h-auto object-cover" onerror="this.onerror=null; this.src='https://placehold.co/600x400/C2185B/ffffff?text=Before+After+Funnel+Mockup';">
+                        <p class="text-center text-sm text-gray-500 mt-4">Example: Side-by-side comparison of a basic page vs. a high-converting funnel page.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ABOUT SECTION -->
+        <section id="about" class="section-enhanced bg-gray-50">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid lg:grid-cols-2 gap-16 items-center">
+                    <div class="animate-fade-up">
+                        <div class="inline-flex items-center bg-pink-100 rounded-full px-4 py-2 mb-6">
+                            <span class="text-sm font-semibold text-pink-700">👋 Meet Your Funnel Conversion Partner</span>
+                        </div>
+                        <h2 class="section-title text-left">Why Businesses Choose My Funnel Expertise</h2>
+                        <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+                            I'm Bea Villanea. With over 13 years in digital marketing, operations, and customer acquisition, I've honed the art and science of high-converting funnels. I'm not just a designer; I'm your dedicated partner committed to transforming your website visitors into loyal, paying customers.
+                        </p>
+
+                        <div class="space-y-4 mb-8">
+                            <div class="flex items-start justify-center md:justify-start">
+                                <div class="w-6 h-6 bg-pink-500 rounded-full mr-4 flex items-center justify-center flex-shrink-0 mt-1">
+                                    <i data-lucide="check" class="h-3 w-3 text-white"></i>
+                                </div>
+                                <div>
+                                    <span class="font-semibold text-gray-800">13+ Years of Conversion Expertise:</span>
+                                    <span class="text-gray-700 ml-1">Proven track record in optimizing digital campaigns.</span>
+                                </div>
+                            </div>
+                            <div class="flex items-start justify-center md:justify-start">
+                                <div class="w-6 h-6 bg-pink-500 rounded-full mr-4 flex items-center justify-center flex-shrink-0 mt-1">
+                                    <i data-lucide="check" class="h-3 w-3 text-white"></i>
+                                </div>
+                                <div>
+                                    <span class="font-semibold text-gray-800">Industry-Certified Professional:</span>
+                                    <span class="text-gray-700 ml-1">Google & Meta certified with deep knowledge in digital advertising and analytics.</span>
+                                </div>
+                            </div>
+                            <div class="flex items-start justify-center md:justify-start">
+                                <div class="w-6 h-6 bg-pink-500 rounded-full mr-4 flex items-center justify-center flex-shrink-0 mt-1">
+                                    <i data-lucide="check" class="h-3 w-3 text-white"></i>
+                                </div>
+                                <div>
+                                    <span class="font-semibold text-gray-800">Strategic Funnel Architect:</span>
+                                    <span class="text-gray-700 ml-1">I build funnels that understand buyer psychology and automate your sales process.</span>
+                                </div>
+                            </div>
+                            <div class="flex items-start justify-center md:justify-start">
+                                <div class="w-6 h-6 bg-pink-500 rounded-full mr-4 flex items-center justify-center flex-shrink-0 mt-1">
+                                    <i data-lucide="check" class="h-3 w-3 text-white"></i>
+                                </div>
+                                <div>
+                                    <span class="font-semibold text-gray-800">Dedicated to Your ROI:</span>
+                                    <span class="text-gray-700 ml-1">My focus is on delivering measurable returns on your marketing investment.</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-white rounded-2xl p-6 border border-pink-100 mb-8">
+                            <p class="text-gray-700 italic text-lg">
+                                "My mission is simple: Design funnels that consistently turn your prospects into profits." - Bea
+                            </p>
+                        </div>
+
+                        <div class="flex flex-col sm:flex-row gap-4">
+                            <a href="https://calendly.com/villaneabea1/30min" target="_blank" class="btn-primary">
+                                <i data-lucide="message-circle" class="mr-2 h-5 w-5"></i>
+                                Let's Chat About Your Conversion Goals
+                            </a>
+                            <a href="#testimonials" class="btn-secondary">
+                                <i data-lucide="star" class="mr-2 h-4 w-4"></i>
+                                Hear Their Success Stories
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="animate-scale-in">
+                        <div class="relative">
+                            <div class="absolute inset-0 bg-gradient-to-br from-pink-200 to-purple-200 rounded-3xl transform -rotate-3"></div>
+                            <div class="absolute inset-0 bg-gradient-to-tl from-blue-100 to-pink-100 rounded-3xl transform rotate-2 opacity-60"></div>
+                            <img
+                                src="https://ik.imagekit.io/ewoioxq0g/WhatsApp%20Image%202025-06-14%20at%2003.38.06_4e303549.jpg?updatedAt=1749886904077"
+                                alt="Bea Villanea - Funnel Design Expert"
+                                class="relative rounded-3xl shadow-2xl w-full h-auto object-cover"
+                                onerror="this.onerror=null; this.src='https://placehold.co/600x400/E91E63/ffffff?text=Bea+Villanea';"
+                            >
+                            <!-- Floating achievement badges -->
+                            <div class="absolute -top-4 -right-4 bg-white rounded-2xl p-3 shadow-xl border border-gray-100">
+                                <div class="text-center">
+                                    <div class="text-2xl font-bold text-pink-600">98%</div>
+                                    <div class="text-xs text-gray-600">Client Satisfaction</div>
+                                </div>
+                            </div>
+
+                            <div class="absolute -bottom-4 -left-4 bg-white rounded-2xl p-3 shadow-xl border border-gray-100">
+                                <div class="text-center">
+                                    <div class="text-2xl font-bold text-pink-600">13+</div>
+                                    <div class="text-xs text-gray-600">Years Experience</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TESTIMONIALS SECTION -->
+        <section id="testimonials" class="section-enhanced bg-gray-50 overflow-hidden">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="section-title">Awesome Stories from Converted Clients</h2>
+                    <p class="section-subtitle">
+                        Hear how businesses transformed their lead generation and sales with high-converting funnels.
+                    </p>
+                </div>
+
+                <div id="testimonial-carousel-wrapper" class="relative overflow-hidden w-full py-4">
+                    <div id="testimonial-carousel-track" class="flex gap-4">
+                        <!-- Testimonial Cards - These will be cloned by JavaScript for infinite scroll -->
+                        <div class="testimonial-card">
+                            <div class="star-rating flex mb-1">
+                                <i data-lucide="star" class="h-4 w-4 text-yellow-400 fill-current"></i>
+                                <i data-lucide="star" class="h-4 w-4 text-yellow-400 fill-current"></i>
+                                <i data-lucide="star" class="h-4 w-4 text-yellow-400 fill-current"></i>
+                                <i data-lucide="star" class="h-4 w-4 text-yellow-400 fill-current"></i>
+                                <i data-lucide="star" class="h-4 w-4 text-yellow-400 fill-current"></i>
+                            </div>
+                            <p class="text-sm text-gray-600 mb-4 italic leading-relaxed">
+                                "Bea's funnel design took my business to the next level. My leads tripled and sales increased by 50% within weeks of launch. She's a true conversion wizard!"
+                            </p>
+                            <div class="flex items-center">
+                                <img src="https://placehold.co/120x120/E91E63/ffffff?text=JR" alt="Jessica R." class="w-10 h-10 rounded-full object-cover mr-3" onerror="this.onerror=null; this.src='https://placehold.co/120x120/E91E63/ffffff?text=JR';">
+                                <cite>
+                                    <p class="font-semibold text-base">Jessica R.</p>
+                                    <p class="text-xs text-gray-500">Online Course Creator</p>
+                                    <p class="text-xs text-pink-600 font-semibold">50% Sales Increase</p>
+                                </cite>
+                            </div>
+                        </div>
+                        <div class="testimonial-card">
+                            <div class="star-rating flex mb-1">
+                                <i data-lucide="star" class="h-4 w-4 text-yellow-400 fill-current"></i>
+                                <i data-lucide="star" class="h-4 w-4 text-yellow-400 fill-current"></i>
+                                <i data-lucide="star" class="h-4 w-4 text-yellow-400 fill-current"></i>
+                                <i data-lucide="star" class="h-4 w-4 text-yellow-400 fill-current"></i>
+                                <i data-lucide="star" class="h-4 w-4 text-yellow-400 fill-current"></i>
+                            </div>
+                            <p class="text-sm text-gray-600 mb-4 italic leading-relaxed">
+                                "Our ad spend used to feel like throwing money away. Bea built a funnel that actually converts! Our ROI is through the roof and we're consistently getting qualified leads."
+                            </p>
+                            <div class="flex items-center">
+                                <img src="https://placehold.co/120x120/E91E63/ffffff?text=MK" alt="Michael K." class="w-10 h-10 rounded-full object-cover mr-3" onerror="this.onerror=null; this.src='https://placehold.co/120x120/E91E63/ffffff?text=MK';">
+                                <div>
+                                    <p class="font-semibold text-base">Michael K.</p>
+                                    <p class="text-xs text-gray-500">SaaS Founder</p>
+                                    <p class="text-xs text-pink-600 font-semibold">Significant ROI Boost</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="testimonial-card">
+                            <div class="star-rating flex mb-1">
+                                <i data-lucide="star" class="h-4 w-4 text-yellow-400 fill-current"></i>
+                                <i data-lucide="star" class="h-4 w-4 text-yellow-400 fill-current"></i>
+                                <i data-lucide="star" class="h-4 w-4 text-yellow-400 fill-current"></i>
+                                <i data-lucide="star" class="h-4 w-4 text-yellow-400 fill-current"></i>
+                                <i data-lucide="star" class="h-4 w-4 text-yellow-400 fill-current"></i>
+                            </div>
+                            <p class="text-sm text-gray-600 mb-4 italic leading-relaxed">
+                                "The automated email sequences Bea set up are incredible. My prospects are warmed up and ready to buy by the time I talk to them. So much time saved!"
+                            </p>
+                            <div class="flex items-center">
+                                <img src="https://placehold.co/120x120/E91E63/ffffff?text=TS" alt="Tom S." class="w-10 h-10 rounded-full object-cover mr-3" onerror="this.onerror=null; this.src='https://placehold.co/120x120/E91E63/ffffff?text=TS';">
+                                <div>
+                                    <p class="font-semibold text-base">Tom S.</p>
+                                    <p class="text-xs text-gray-500">Consulting Business Owner</p>
+                                    <p class="text-xs text-pink-600 font-semibold">Streamlined Sales Process</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="testimonial-card">
+                            <div class="star-rating flex mb-1">
+                                <i data-lucide="star" class="h-4 w-4 text-yellow-400 fill-current"></i>
+                                <i data-lucide="star" class="h-4 w-4 text-yellow-400 fill-current"></i>
+                                <i data-lucide="star" class="h-4 w-4 text-yellow-400 fill-current"></i>
+                                <i data-lucide="star" class="h-4 w-4 text-yellow-400 fill-current"></i>
+                                <i data-lucide="star" class="h-4 w-4 text-yellow-400 fill-current"></i>
+                            </div>
+                            <p class="text-sm text-gray-600 mb-4 italic leading-relaxed">
+                                "Bea's expertise in funnel strategy is unmatched. She helped us identify hidden conversion opportunities and built a system that consistently delivers new customers."
+                            </p>
+                            <div class="flex items-center">
+                                <img src="https://placehold.co/120x120/1a73e8/ffffff?text=LH" alt="Lisa H." class="w-10 h-10 rounded-full object-cover mr-3" onerror="this.onerror=null; this.src='https://placehold.co/120x120/1a73e8/ffffff?text=LH';">
+                                <div>
+                                    <p class="font-semibold text-base">Lisa H.</p>
+                                    <p class="text-xs text-gray-500">E-commerce Brand Owner</p>
+                                    <p class="text-xs text-pink-600 font-semibold">Consistent Customer Acquisition</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="testimonial-card">
+                            <div class="star-rating flex mb-1">
+                                <i data-lucide="star" class="h-4 w-4 text-yellow-400 fill-current"></i>
+                                <i data-lucide="star" class="h-4 w-4 text-yellow-400 fill-current"></i>
+                                <i data-lucide="star" class="h-4 w-4 text-yellow-400 fill-current"></i>
+                                <i data-lucide="star" class="h-4 w-4 text-yellow-400 fill-current"></i>
+                                <i data-lucide="star" class="h-4 w-4 text-yellow-400 fill-current"></i>
+                            </div>
+                            <p class="text-sm text-gray-600 mb-4 italic leading-relaxed">
+                                "The landing pages Bea designed are absolutely beautiful and they convert like crazy! She understood my brand perfectly and delivered exactly what I needed to scale."
+                            </p>
+                            <div class="flex items-center">
+                                <img src="https://placehold.co/120x120/34a853/ffffff?text=AR" alt="Alex R." class="w-10 h-10 rounded-full object-cover mr-3" onerror="this.onerror=null; this.src='https://placehold.co/120x120/34a853/ffffff?text=AR';">
+                                <div>
+                                    <p class="font-semibold text-base">Alex R.</p>
+                                    <p class="text-xs text-gray-500">Fitness Coach</p>
+                                    <p class="text-xs text-pink-600 font-semibold">High-Converting Landing Pages</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="testimonial-card">
+                            <div class="star-rating flex mb-1">
+                                <i data-lucide="star" class="h-4 w-4 text-yellow-400 fill-current"></i>
+                                <i data-lucide="star" class="h-4 w-4 text-yellow-400 fill-current"></i>
+                                <i data-lucide="star" class="h-4 w-4 text-yellow-400 fill-current"></i>
+                                <i data-lucide="star" class="h-4 w-4 text-yellow-400 fill-current"></i>
+                                <i data-lucide="star" class="h-4 w-4 text-yellow-400 fill-current"></i>
+                            </div>
+                            <p class="text-sm text-gray-600 mb-4 italic leading-relaxed">
+                                "Thanks to Bea's funnel setup, my business now has a predictable stream of new clients. I no longer worry about where the next sale will come from!"
+                            </p>
+                            <div class="flex items-center">
+                                <img src="https://placehold.co/120x120/8A2BE2/ffffff?text=CM" alt="Carlos M." class="w-10 h-10 rounded-full object-cover mr-3" onerror="this.onerror=null; this.src='https://placehold.co/120x120/8A2BE2/ffffff?text=CM';">
+                                <div>
+                                    <p class="font-semibold text-base">Carlos M.</p>
+                                    <p class="text-xs text-gray-500">Service-Based Business</p>
+                                    <p class="text-xs text-pink-600 font-semibold">Predictable Client Acquisition</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Enhanced CTA -->
+                <div class="text-center bg-white rounded-3xl p-8 shadow-xl border border-pink-100 mt-12">
+                    <h3 class="text-2xl font-bold mb-4">Ready to Write Your Conversion Story?</h3>
+                    <p class="text-gray-600 mb-6">Your high-converting funnel journey starts here. Let's chat about making it happen.</p>
+                    <a href="https://calendly.com/villaneabea1/30min" target="_blank" class="btn-primary btn-urgent">
+                        <i data-lucide="calendar" class="mr-2 h-5 w-5"></i>
+                        Book Your Conversion Call
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ SECTION -->
+        <section id="faq" class="section-enhanced">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="section-title">Your Funnel Questions, Answered</h2>
+                    <p class="section-subtitle">
+                        Everything you need to know about partnering with a funnel design expert to boost your conversions.
+                    </p>
+                </div>
+
+                <div class="max-w-4xl mx-auto space-y-6">
+                    <div class="card-enhanced animate-fade-up">
+                        <div class="faq-item">
+                            <button class="faq-question w-full text-left p-4 flex justify-between items-center focus:outline-none group">
+                                <span class="font-semibold text-base group-hover:text-pink-600 transition-colors">What exactly is a sales funnel?</span>
+                                <i data-lucide="chevron-down" class="h-5 w-5 text-gray-500 transition-transform duration-200"></i>
+                            </button>
+                            <div class="faq-answer hidden px-6 pb-6">
+                                <p class="text-gray-600 leading-relaxed">
+                                    A sales funnel is a guided marketing and sales process that takes potential customers through a series of steps designed to lead them towards a purchase or desired action. It typically includes stages like Awareness, Interest, Desire, and Action (AIDA). My service designs and builds these automated pathways to maximize conversions.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-enhanced animate-fade-up">
+                        <div class="faq-item">
+                            <button class="faq-question w-full text-left p-4 flex justify-between items-center focus:outline-none group">
+                                <span class="font-semibold text-base group-hover:text-pink-600 transition-colors">How long does it take to see results from a new funnel?</span>
+                                <i data-lucide="chevron-down" class="h-5 w-5 text-gray-500 transition-transform duration-200"></i>
+                            </button>
+                            <div class="faq-answer hidden px-6 pb-6">
+                                <p class="text-gray-600 leading-relaxed">
+                                    While results can vary, many clients start seeing significant improvements in lead quality and conversion rates within 30 days of funnel launch. Initial setup typically takes 2-4 weeks, followed by continuous optimization for even better performance.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-enhanced animate-fade-up">
+                        <div class="faq-item">
+                            <button class="faq-question w-full text-left p-4 flex justify-between items-center focus:outline-none group">
+                                <span class="font-semibold text-base group-hover:text-pink-600 transition-colors">What kind of businesses benefit most from funnel design?</span>
+                                <i data-lucide="chevron-down" class="h-5 w-5 text-gray-500 transition-transform duration-200"></i>
+                            </button>
+                            <div class="faq-answer hidden px-6 pb-6">
+                                <p class="text-gray-600 leading-relaxed">
+                                    Businesses looking to generate more leads, automate their sales process, sell digital products, courses, services, or e-commerce products online can benefit immensely. If you have a clear target audience and an offer, a well-designed funnel can amplify your results.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-enhanced animate-fade-up">
+                        <div class="faq-item">
+                            <button class="faq-question w-full text-left p-4 flex justify-between items-center focus:outline-none group">
+                                <span class="font-semibold text-base group-hover:text-pink-600 transition-colors">Do you offer ongoing funnel management or just design?</span>
+                                <i data-lucide="chevron-down" class="h-5 w-5 text-gray-500 transition-transform duration-200"></i>
+                            </button>
+                            <div class="faq-answer hidden px-6 pb-6">
+                                <p class="text-gray-600 leading-relaxed">
+                                    I primarily focus on strategic funnel design and implementation to get you set up for success. However, I can also discuss retainer options for ongoing optimization, A/B testing, and performance monitoring to ensure your funnel continues to convert at its peak. This is often discussed after the initial build.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-enhanced animate-fade-up">
+                        <div class="faq-item">
+                            <button class="faq-question w-full text-left p-4 flex justify-between items-center focus:outline-none group">
+                                <span class="font-semibold text-base group-hover:text-pink-600 transition-colors">How do we get started with my funnel project?</span>
+                                <i data-lucide="chevron-down" class="h-5 w-5 text-gray-500 transition-transform duration-200"></i>
+                            </button>
+                            <div class="faq-answer hidden px-6 pb-6">
+                                <p class="text-gray-600 leading-relaxed">
+                                    It's simple and results-oriented:
+                                </p>
+                                <ol class="list-decimal list-inside text-gray-600 space-y-2 mb-6">
+                                    <li>Book a free 30-minute Strategy Call to discuss your business goals and current conversion challenges.</li>
+                                    <li>I'll provide a custom Funnel Blueprint outlining the steps to build your high-converting sales machine.</li>
+                                    <li>Watch your leads and sales grow as your new funnel automates your customer acquisition.</li>
+                                </ol>
+                                <div class="bg-pink-50 rounded-xl p-4 border border-pink-200">
+                                    <p class="text-pink-800 font-semibold mb-2">Ready for a conversion breakthrough?</p>
+                                    <a href="https://calendly.com/villaneabea1/30min" target="_blank" class="btn-primary inline-flex items-center">
+                                        <i data-lucide="calendar" class="mr-2 h-5 w-5"></i>
+                                        Schedule Your Free Strategy Call Now
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT SECTION -->
+        <section id="contact" class="section-enhanced hero-enhanced">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="max-w-6xl mx-auto">
+                    <div class="text-center mb-12">
+                        <h2 class="section-title">Ready to Automate Your Sales & Grow Consistently?</h2>
+                        <p class="section-subtitle">
+                            Book your free 30-minute Funnel Strategy Call. Discover precisely how a high-converting sales funnel can transform your lead generation into predictable revenue in just 30 days. You'll gain freedom to scale with confidence.
+                        </p>
+                        <div class="urgency-indicator mb-8">
+                            <i data-lucide="clock" class="h-4 w-4"></i>
+                            Don't miss out on boosting your conversions!
+                        </div>
+                    </div>
+
+                    <div class="grid lg:grid-cols-2 gap-12 items-start">
+                        <!-- Right side: Professional Card (moved to the right) -->
+                        <div class="animate-scale-in">
+                            <div class="card-enhanced text-center">
+                                <img
+                                    src="https://ik.imagekit.io/ewoioxq0g/Untitled%20design%20(4).png?updatedAt=1749778070801"
+                                    alt="Bea Villanea - High-Converting Funnel Design Expert"
+                                    class="w-40 h-40 rounded-full mx-auto mb-6 object-cover shadow-xl ring-4 ring-pink-100"
+                                >
+                                <h3 class="text-2xl font-bold mb-3">Let's Design Your Path to Profit, Together!</h3>
+                                <p class="text-gray-600 mb-6 leading-relaxed">
+                                    I'm eager to understand your unique business and conversion challenges. Let's strategize how a custom sales funnel can consistently bring you qualified leads and increase your sales. No pressure—just candid conversation and actionable strategies for measurable growth.
+                                </p>
+
+                                <div class="bg-pink-50 rounded-xl p-4 mb-6 border border-pink-200">
+                                    <div class="grid grid-cols-2 gap-4 text-sm">
+                                        <div class="text-center">
+                                            <div class="text-2xl font-bold text-pink-600">98%</div>
+                                            <div class="text-xs text-gray-600">Client Satisfaction Rate</div>
+                                        </div>
+                                        <div class="text-center">
+                                            <div class="text-2xl font-bold text-pink-600">45%</div>
+                                            <div class="text-xs text-gray-600">Average Conversion Boost</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="space-y-2 text-sm text-gray-500">
+                                    <p class="flex items-center justify-center">
+                                        <i data-lucide="mail" class="h-4 w-4 mr-2"></i>
+                                        villaneabe1@gmail.com
+                                    </p>
+                                    <p class="flex items-center justify-center">
+                                        <i data-lucide="clock" class="h-4 w-4 mr-2"></i>
+                                        Available Mon-Fri, 8AM-6PM Your Time
+                                    </p>
+                                    <p class="flex items-center justify-center">
+                                        <i data-lucide="map-pin" class="h-4 w-4 mr-2"></i>
+                                        Based in the Philippines, Flexible Schedule
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Left side: Value Proposition & Contact Options -->
+                        <div class="animate-fade-up">
+                            <div class="bg-white rounded-3xl p-8 shadow-xl border border-pink-100 mb-8">
+                                <h3 class="text-2xl font-bold mb-6 text-center">What You'll Gain in Your Free Funnel Call:</h3>
+
+                                <div class="space-y-6">
+                                    <div class="flex items-start">
+                                        <div class="icon-enhanced mr-4 !mb-0">
+                                            <i data-lucide="search" class="h-5 w-5"></i>
+                                        </div>
+                                        <div>
+                                            <p class="font-semibold">Insightful Funnel Opportunity Review</p>
+                                            <p class="text-gray-600 text-sm">Pinpoint where your current marketing is losing leads and sales.</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-start">
+                                        <div class="icon-enhanced mr-4 !mb-0">
+                                            <i data-lucide="target" class="h-5 w-5"></i>
+                                        </div>
+                                        <div>
+                                            <p class="font-semibold">Custom Funnel Strategy Blueprint</p>
+                                            <p class="text-gray-600 text-sm">A personalized plan to convert prospects into profits, including automation ideas.</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-start">
+                                        <div class="icon-enhanced mr-4 !mb-0">
+                                            <i data-lucide="trending-up" class="h-5 w-5"></i>
+                                        </div>
+                                        <div>
+                                            <p class="font-semibold">Your Fast-Track Conversion Plan</p>
+                                            <p class="text-gray-600 text-sm">A clear path to boost conversions within 30 days and achieve 40-60% sales growth in 6-12 months. Turn clicks into customers!</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-start">
+                                        <div class="icon-enhanced mr-4 !mb-0">
+                                            <i data-lucide="gift" class="h-5 w-5"></i>
+                                        </div>
+                                        <div>
+                                            <p class="font-semibold">Bonus Gift</p>
+                                            <p class="text-gray-600 text-sm">Your free "High-Converting Funnel Checklist" Ebook.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="text-center space-y-4">
+                                <a href="https://calendly.com/villaneabea1/30min" target="_blank" class="btn-primary btn-urgent w-full justify-center text-lg py-4">
+                                    <i data-lucide="calendar" class="mr-3 h-6 w-6"></i>
+                                    Book Your FREE Funnel Strategy Call Now
+                                </a>
+
+                                <p class="text-sm text-gray-500">⚡ Typically books within 24-48 hours</p>
+
+                                <div class="flex flex-col sm:flex-row gap-4 pt-4">
+                                    <a href="mailto:villaneabe1@gmail.com" class="btn-secondary flex-1 justify-center">
+                                        <i data-lucide="mail" class="mr-2 h-4 w-4"></i>
+                                        Shoot an Email
+                                    </a>
+                                    <a href="https://www.linkedin.com/in/bea-villanea-3a2a862a9" target="_blank" class="btn-secondary flex-1 justify-center">
+                                        <i data-lucide="linkedin" class="mr-2 h-4 w-4"></i>
+                                        Let's connect on LinkedIn
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Additional trust signals -->
+                    <div class="text-center mt-12 pt-8 border-t border-pink-200">
+                        <p class="text-gray-600 mb-4">
+                            <strong>🔒 Totally Confidential</strong> • <strong>📞 Zero Pressure</strong> • <strong>💝 Real Value, Guaranteed</strong>
+                        </p>
+                        <p class="text-sm text-gray-500 italic">
+                            "Every conversation starts with truly understanding what your business needs. I'm here to help, not push." - Bea
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-gray-900 text-gray-300 py-12">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div class="md:col-span-2">
+                    <h3 class="text-white font-bold text-xl mb-4">Bea Villanea</h3>
+                    <p class="text-gray-400 mb-4 leading-relaxed">
+                        Your dedicated Funnel Design Partner. I craft high-converting sales funnels that automate lead generation and turn visitors into loyal customers, allowing you to focus on your core business and scale with confidence.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="https://www.linkedin.com/in/bea-villanea-3a2a862a9" target="_blank" class="text-gray-400 hover:text-white transition-colors">
+                            <i data-lucide="linkedin" class="h-5 w-5"></i>
+                        </a>
+                        <a href="mailto:villaneabe1@gmail.com" class="text-gray-400 hover:text-white transition-colors">
+                            <i data-lucide="mail" class="h-5 w-5"></i>
+                        </a>
+                        <a href="https://calendly.com/villaneabe1/30min" target="_blank" class="text-gray-400 hover:text-white transition-colors">
+                            <i data-lucide="calendar" class="h-5 w-5"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-semibold mb-4">What I Help With</h4>
+                    <ul class="space-y-2 text-gray-400 text-sm">
+                        <li>Funnel Strategy & Mapping</li>
+                        <li>Landing Page Design</li>
+                        <li>Conversion Copywriting</li>
+                        <li>Email Nurture Sequences</li>
+                        <li>Automation & Integration</li>
+                        <li>A/B Testing & Optimization</li>
+                        <li>Lead Generation Strategy</li>
+                        <li>Sales Process Automation</li>
+                        <li>High-Converting Assets</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Get Started</h4>
+                    <ul class="space-y-2 text-gray-400 text-sm">
+                        <li>
+                            <a href="https://calendly.com/villaneabea1/30min" target="_blank" class="hover:text-white transition-colors">Free Strategy Call</a>
+                        </li>
+                        <li>
+                            <a href="mailto:villaneabe1@gmail.com" class="hover:text-white transition-colors">villaneabe1@gmail.com</a>
+                        </li>
+                        <li>Available Mon-Fri</li>
+                        <li>Flexible Time Zones</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2025 Bea Villanea. All rights reserved. | Turning Clicks into Clients!</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- FLOATING CTA BUTTON -->
+    <a href="https://calendly.com/villaneabea1/30min" target="_blank" class="floating-cta">
+        <i data-lucide="calendar" class="h-5 w-5"></i>
+        Ready for More Sales? Book a call!
+        <span class="text-xs bg-white/20 px-2 py-1 rounded-full">FREE</span>
+    </a>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            lucide.createIcons();
+
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            if (mobileMenuButton && mobileMenu) {
+                mobileMenuButton.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('hidden');
+                });
+            }
+
+            const observerOptions = {
+                root: null,
+                rootMargin: '50px',
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('in-view');
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.animate-fade-up, .animate-scale-in').forEach(el => {
+                observer.observe(el);
+                const rect = el.getBoundingClientRect();
+                const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+                if (rect.top >= 0 && rect.top <= windowHeight) {
+                    el.classList.add('in-view');
+                }
+            });
+
+            document.querySelectorAll('.faq-question').forEach(button => {
+                button.addEventListener('click', () => {
+                    const faqItem = button.closest('.faq-item');
+                    const answer = faqItem.querySelector('.faq-answer');
+                    const chevron = button.querySelector('i[data-lucide="chevron-down"]');
+
+                    const isOpen = answer && !answer.classList.contains('hidden');
+                    document.querySelectorAll('.faq-answer').forEach(otherAnswer => {
+                        if (otherAnswer && otherAnswer !== answer && !otherAnswer.classList.contains('hidden')) {
+                            otherAnswer.classList.add('hidden');
+                            const otherChevron = otherAnswer.closest('.faq-item')?.querySelector('i[data-lucide="chevron-down"]');
+                            if (otherChevron) {
+                                otherChevron.style.transform = 'rotate(0deg)';
+                            }
+                        }
+                    });
+
+                    if (answer) {
+                        if (isOpen) {
+                            answer.classList.add('hidden');
+                            if (chevron) {
+                                chevron.style.transform = 'rotate(0deg)';
+                            }
+                        } else {
+                            answer.classList.remove('hidden');
+                            if (chevron) {
+                                chevron.style.transform = 'rotate(180deg)';
+                            }
+                        }
+                    }
+                });
+            });
+
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+
+            const progressBar = document.createElement('div');
+            progressBar.style.cssText = `
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 0%;
+                height: 3px;
+                background: linear-gradient(135deg, #E91E63, #FF6B9D);
+                z-index: 9999;
+                transition: width 0.25s ease;
+            `;
+            document.body.appendChild(progressBar);
+
+            window.addEventListener('scroll', () => {
+                const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+                const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                const scrolled = (winScroll / height) * 100;
+                progressBar.style.width = scrolled + '%';
+            });
+
+            const floatingCTA = document.querySelector('.floating-cta');
+            let lastScrollTop = 0;
+
+            window.addEventListener('scroll', () => {
+                const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+                if (floatingCTA) {
+                    if (scrollTop > lastScrollTop && scrollTop > 100) {
+                        floatingCTA.style.transform = 'translateY(100px)';
+                        floatingCTA.style.opacity = '0';
+                    } else {
+                        floatingCTA.style.transform = 'translateY(0)';
+                        floatingCTA.style.opacity = '1';
+                    }
+                }
+                lastScrollTop = scrollTop;
+            });
+
+            const numberCounters = document.querySelectorAll('.result-number');
+            const animatedNumbers = new Set();
+            const animateNumber = (element) => {
+                if (animatedNumbers.has(element)) {
+                    return;
+                }
+
+                const finalValue = element.getAttribute('data-final-value');
+                const numericMatch = finalValue.match(/(\d+(\.\d+)?)/);
+                const numericTarget = numericMatch ? parseFloat(numericMatch[1]) : 0;
+
+                let current = 0;
+                const duration = 1500;
+                const step = numericTarget / (duration / 16);
+
+                const timer = setInterval(() => {
+                    current += step;
+                    if (current >= numericTarget) {
+                        clearInterval(timer);
+                        element.textContent = finalValue;
+                        animatedNumbers.add(element);
+                    } else {
+                        if (Number.isInteger(numericTarget)) {
+                            element.textContent = Math.floor(current);
+                        } else {
+                            element.textContent = current.toFixed(0);
+                        }
+                    }
+                }, 16);
+            };
+
+            const resultsSection = document.getElementById('results');
+            const sectionObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const numbersInView = entry.target.querySelectorAll('.result-number');
+                        numbersInView.forEach(numElement => {
+                            animateNumber(numElement);
+                        });
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.2
+            });
+
+            if (resultsSection) {
+                sectionObserver.observe(resultsSection);
+            }
+
+            const testimonialCarouselTrack = document.getElementById('testimonial-carousel-track');
+            let originalTestimonialCards = Array.from(testimonialCarouselTrack.querySelectorAll('.testimonial-card'));
+
+            if (testimonialCarouselTrack && originalTestimonialCards.length > 0) {
+                originalTestimonialCards.forEach(card => {
+                    testimonialCarouselTrack.appendChild(card.cloneNode(true));
+                });
+
+                const calculateAndSetAnimation = () => {
+                    let totalOriginalWidth = 0;
+                    const gap = parseFloat(window.getComputedStyle(testimonialCarouselTrack).gap);
+
+                    originalTestimonialCards.forEach(card => {
+                        totalOriginalWidth += card.offsetWidth + gap;
+                    });
+                    totalOriginalWidth -= gap;
+
+                    testimonialCarouselTrack.style.setProperty('--scroll-distance', `-${totalOriginalWidth}px`);
+                    const animationSpeed = 0.50;
+                    const duration = totalOriginalWidth / animationSpeed;
+                    testimonialCarouselTrack.style.setProperty('--animation-duration', `${duration / 1000}s`);
+                    testimonialCarouselTrack.addEventListener('mouseenter', () => {
+                        testimonialCarouselTrack.style.animationPlayState = 'paused';
+                    });
+                    testimonialCarouselTrack.addEventListener('mouseleave', () => {
+                        testimonialCarouselTrack.style.animationPlayState = 'running';
+                    });
+                };
+                calculateAndSetAnimation();
+                window.addEventListener('resize', calculateAndSetAnimation);
+            }
+        });
+    </script>
+</body>
+</html>
